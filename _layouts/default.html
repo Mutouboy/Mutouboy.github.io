@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "TeX": {
+    equationNumbers: {autoNumber: ["none"]},
+    Macros: {
+      AA : "{\\unicode{x212B}}",
+      oiiint : "{\\rlap{\\subset}\\mkern-0.11em\\rlap\\int\\mkern0.3em\\rlap\\int\\mkern0.14em\\int\\mkern-1.1em\\supset}",
+      oiint : "{\\rlap{\\subset}\\mkern-0.24em\\iint\\mkern-1.09em\\supset}"
+    }
+  },
+  "HTML-CSS": {scale: 90},
+  "tex2jax": {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+});
+</script>
+
+{% include head.html %}
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    {% include nav.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+
+<!-- Image to hack wechat -->
+<img src="/img/site/icon.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
