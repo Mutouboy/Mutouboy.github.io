@@ -1,0 +1,12 @@
+---
+layout: post
+title: Java中的一些零碎点 
+category: Java
+tag: [Java]
+---
+这篇文章主要记录一些Java学习中遇到的需要留心的知识点。
+
+*基本变量*
+基本变量不用new创建变量，而是创建一个并非是引用的“自动变量”。存储在堆栈中，比存储在堆中的对象速度更快。
+基本变量共有八个，分别是boolean,char,byte,short,int,long,float,double。
+特别需要注意的是：String不是基本变量，而是引用变量。
