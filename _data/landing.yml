@@ -1,6 +1,6 @@
 # index page sections
 - id: 'about-me'
-  i18n: 'nav.about_me'
+  i18n: 'nav.about_me1'
   name: 'About'
   tpl: 'about.html'
   css: ''

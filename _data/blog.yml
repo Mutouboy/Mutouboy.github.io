@@ -14,11 +14,10 @@
 - name: Database
   href: '/database/'
 
-- name: Mac
-  href: '/mac/'
+- name: Java
+  href: '/java/'
 
 - name: Life
   href: '/life/'
 
-- name: Jave
-  href: '/donate/'
+

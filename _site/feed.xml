@@ -5,9 +5,2119 @@
     <description>Mutouboy`s blog</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Jan 2017 20:48:23 +0800</pubDate>
-    <lastBuildDate>Thu, 05 Jan 2017 20:48:23 +0800</lastBuildDate>
+    <pubDate>Thu, 05 Jan 2017 22:20:45 +0800</pubDate>
+    <lastBuildDate>Thu, 05 Jan 2017 22:20:45 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Java设计模式</title>
+        <description>&lt;p&gt;这篇文章主要记录了一些java设计模式&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;一、设计原则&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1、单一职责原则&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一个类，只有一个引起它变化的原因。应该只有一个职责。每一个职责都是变化的一个轴线，如果一个类有一个以上的职责，这些职责就耦合在了一起。这会导致脆弱的设计。当一个职责发生变化时，可能会影响其它的职责。另外，多个职责耦合在一起，会影响复用性。例如：要实现逻辑和界面的分离。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2、开闭原则（Open Close Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;开闭原则就是说对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。所以一句话概括就是：为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3、里氏代换原则（Liskov Substitution Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;里氏代换原则(Liskov Substitution Principle LSP)面向对象设计的基本原则之一。   里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。 LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开-闭”原则的补充。实现“开-闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4、依赖倒转原则（Dependence Inversion Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;所谓依赖倒置原则（Dependence Inversion Principle）就是要依赖于抽象，不要依赖于具体。简单的说就是要求对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块间的耦合。&lt;/p&gt;
+
+&lt;p&gt;实现开闭原则的关键是抽象化，并且从抽象化导出具体化实现，如果说开闭原则是面向对象设计的目标的话，那么依赖倒转原则就是面向对象设计的主要手段。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5、接口隔离原则（Interface Segregation Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。还是一个降低类之间的耦合度的意思，从这儿我们看出，其实设计模式就是一个软件的设计思想，从大型软件架构出发，为了升级和维护方便。所以上文中多次出现：降低依赖，降低耦合。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6、合成复用原则（Composite Reuse Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;合成复用原则就是指在一个新的对象里通过关联关系（包括组合关系和聚合关系）来使用一些已有的对象，使之成为新对象的一部分；新对象通过委派调用已有对象的方法达到复用其已有功能的目的。简言之：要尽量使用组合/聚合关系，少用继承。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7、迪米特法则（最少知道原则）（Demeter Principle）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;为什么叫最少知道原则，就是说：一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。也就是说一个软件实体应当尽可能少的与其他实体发生相互作用。这样，当一个模块修改时，就会尽量少的影响其他的模块，扩展会相对容易，这是对软件实体之间通信的限制，它要求限制软件实体之间通信的宽度和深度。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;二、模式介绍&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;单例模式&lt;/strong&gt;&lt;br /&gt;
+单例模式保证了某个对象只有一个实例，对于某些大型系统，频繁创建对象对系统压力很大，产生的开销也很大，使用单例模式可以很好的降低开销，也省去了频繁的new一个新对象，节省内存。同时，创建多个实例代表允许多个线程运行，在某些系统中是不允许的。&lt;br /&gt;
+单例模式分两种方法：懒汉/饿汉&lt;br /&gt;
+饿汉模式：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;将类的构造器私有化（private），防止外部实例化对象&lt;/li&gt;
+  &lt;li&gt;在类内部自身实例化一个对象，唯一且私有（private static）&lt;/li&gt;
+  &lt;li&gt;提供一个公共静态的获取实例的方法（public static），用来获取这个唯一的实例&lt;br /&gt;
+懒汉模式：&lt;/li&gt;
+  &lt;li&gt;将类的构造器私有化（private），禁止外部实例化对象&lt;/li&gt;
+  &lt;li&gt;声明（仅声明）一个唯一的实例，静态私有（private static）&lt;/li&gt;
+  &lt;li&gt;提供一个公共静态的获取实例的方法（public static），先判断这个唯一实例是否为空，不为空则实例化；否则直接返回&lt;br /&gt;
+懒汉和饿汉的比较：&lt;br /&gt;
+懒汉模式只有调用获取对象的实例方法时才会实例化对象，加载速度快，但运行时获取对象速度慢，线程不安全。&lt;br /&gt;
+饿汉模式在加载类时，改唯一对象实例就已经产生，无论是否需要。加载速度慢，但运行时获取对象速度快，线程安全。&lt;br /&gt;
+—
+&lt;strong&gt;工厂模式&lt;/strong&gt;&lt;br /&gt;
+工厂用来实现创建对象的细节，当用户需要一个对象时，只需要告诉工厂需要那个对象，工厂就会返回一个对象给用户使用，具体的创建对象的细节全部封装到工厂中。&lt;br /&gt;
+假设有A包和B包，A包要调用B包的代码，B包向A包提供一个C接口。B包中实现了C接口的类有100个，这100个类的构造器各不相同。如果A要调用B采用NEW的方法，将面临在100个构造器中选择的难题，这是不现实的。A可以通过工厂，向工厂传递一个参数，工厂内部在这100个类中选择符合这个参数的对象，将其返回给A。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;工厂分简单工厂模式、工厂方法模式、抽象工厂模式三种&lt;br /&gt;
+简单工厂模式：只有一个工厂，将new对象的过程封装起来，通过传进来的参数返回不同的对象。这种方法违反了开闭原则，当新增加一种对象时，工厂方法代码同样也需要进行改变。&lt;br /&gt;
+工厂方法模式：有多个具体工厂继承基类抽象工厂，每个具体工厂负责某一个对象的创建，这样在增加新的对象种类时，只需要再新建一个对应的工厂即可，符合开闭原则。&lt;br /&gt;
+抽象工厂模式：工厂方法模式的扩展，工厂方法中的产品只有一个，但抽象工厂中可以有多个，构成一个家族。&lt;br /&gt;
+—
+&lt;strong&gt;代理模式&lt;/strong&gt;&lt;br /&gt;
+代理是让某些类代替其他类做一些事，如可以采用代理的方式，在不改变A代码的情况下，用B实现A并做出一些改变。&lt;br /&gt;
+代理分静态代理和动态代理。&lt;br /&gt;
+静态代理是代理前就知道具体的信息，双方采用固定的端口和网络。&lt;br /&gt;
+代理可以传递，如果采用继承的方法会很冗杂，最好采用聚合的方式来进行代理传递。&lt;/p&gt;
+
+&lt;pre&gt;
+
+public interface Moveable {
+	void move();
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class Car implements Moveable {
+	@Override
+	public void move() {
+		//开车
+		try {
+			Thread.sleep(new Random().nextInt(1000));
+			System.out.println(&quot;开车中....&quot;);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class CarLogProxy implements Moveable {
+
+	public CarLogProxy(Moveable m) {
+		super();
+		this.m = m;
+	}
+	private Moveable m;
+	
+	@Override
+	public void move() {
+		System.out.println(&quot;日志开始....&quot;);
+		m.move();
+		System.out.println(&quot;日志结束....&quot;);
+	}
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class CarTimeProxy implements Moveable {
+
+	public CarTimeProxy(Moveable m) {
+		super();
+		this.m = m;
+	}
+
+	private Moveable m;
+	
+	@Override
+	public void move() {
+		long starttime = System.currentTimeMillis();
+		System.out.println(&quot;开始行驶....&quot;);
+		m.move();
+		long endtime = System.currentTimeMillis();
+		System.out.println(&quot;结束行驶....  行驶时间 
+				+ (endtime - starttime)&quot; + &quot;毫秒&quot;);
+	}
+
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class Client {
+
+	/**
+	 * 测试类
+	 */
+	public static void main(String[] args) {
+		Car car = new Car();
+		CarLogProxy clp = new CarLogProxy(car);
+		CarTimeProxy ctp = new CarTimeProxy(clp);
+		ctp.move();
+		/*
+		这里是代理传递。CarLogProxy() 和 CarTimeProxy()中的moveable m都是指向这里的 new Car()的引用
+		clp中的m.move()是Car中的move(),ctp中的move()是clp中的move();
+		按照这种传递式运行。
+		*/
+	}
+
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;动态代理
+JDK代理：&lt;/li&gt;
+  &lt;li&gt;1、创建一个实现接口InvocationHandler的类，它必须实现invoke方法&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Public Object invoke（Object obj，Method method，Object[]args）&lt;/code&gt;&lt;br /&gt;
+第一个参数obj一般指被代理类，method是被代理的方法，args为该方法的参数数组。这个抽象方法在代理类中动态实现&lt;/li&gt;
+  &lt;li&gt;2、创建被代理的类以及接口&lt;/li&gt;
+  &lt;li&gt;3、调用Proxy的静态方法，创建一个代理类&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;newProxyInstance(ClassLoader loader,Class[]interfaces,InvocationHandler h)&lt;/code&gt;&lt;br /&gt;
+返回一个代理类的实例，可以当做被代理类使用&lt;/li&gt;
+  &lt;li&gt;4、通过代理调用方法
+代码如下:&lt;/li&gt;
+  &lt;li&gt;1.建立接口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public interface UserSerive {
+    String getName(int id);
+    Integer getAge(int id);
+}
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2.建立实现了接口的类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class User implements UserSerive {
+    private String name=&quot;tom&quot;;
+    private int age = 10;
+    @Override
+    public String getName(int id) {
+        System.out.println(&quot;------name is:&quot;+name);
+        return name;
+    }
+    @Override
+    public Integer getAge(int id) {
+        System.out.println(&quot;------age is:&quot;+age);
+        return age;
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;3.创建代理类实现接口InvocationHandler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class InvoHinder implements InvocationHandler {
+	//target为要代理的类
+    private Object target;
+    public InvoHinder(){super();}
+    public InvoHinder(Object target) {
+        super();
+        this.target = target;
+  }
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+       Object result= method.invoke(target,args);
+        return result;
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;4.测试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Text {
+    public static void main(String[] args){
+        UserSerive use = new User();
+        InvocationHandler h = new InvoHinder(use);
+        Class&amp;lt;?&amp;gt; cls = use.getClass();
+//创建代理实例，指定代理的类、类实现的接口以及代理实例。这里能够看到，jdk代理只能实现接口方法。
+       UserSerive u = (UserSerive) Proxy.newProxyInstance(cls.getClassLoader(),
+				cls.getInterfaces(),h);
+       System.out.println(u.getName(1));
+        u.getAge(1);
+    }
+&lt;/pre&gt;
+
+&lt;p&gt;CGLIB代理：
+JDK动态代理只能代理实现了接口的类，而CGLIB动态代理没有这个限制，它是针对类实现的。&lt;br /&gt;
+对指定目标产生一个子类，通过方法拦截技术拦截所有父类方法的调用。&lt;br /&gt;
+代码如下：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.创建类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class User {
+    public void show(){
+        System.out.println(&quot;------------&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;2.创建代理接口,实现MethodInterceptor接口，需要jar包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Cgliproxy implements MethodInterceptor{
+
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+    //o为被代理类，method为拦截的方法，objects为代理方法参数数组，methodProxy为代理方法
+        methodProxy.invokeSuper(o,objects);
+        return null;
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;3.测试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Text {
+    public static void main(String[] args){
+        //代理初始化
+        Cgliproxy cgliproxy = new Cgliproxy();
+        Enhancer enhancer = new Enhancer();
+        //进行代理，设置要代理的类和代理
+        enhancer.setSuperclass(User.class);
+        enhancer.setCallback(cgliproxy);
+        //创建代理实例
+        User user = (User)enhancer.create();
+        //调用方法
+        user.show();
+    }
+}
+&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;适配器模式&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+将一个类的接口转换成客户期望的另一个接口，是的原本因为接口不兼容而无法一起工作的类可以一起工作。&lt;br /&gt;
+注意，这里转换的只是接口，真正的方法内容并不会改变。&lt;br /&gt;
+代码如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1.创建一个目标功能接口，要让不兼容的类实现这个功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public interface ThreeIf {
+    void powerThree();
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;2.创建一个不兼容的类，用来将其转换。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Two {
+    void show(){
+        System.out.println(&quot;---------Two power----------&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;3.创建一个适配器，且接收一个不兼容的类，实现目标功能接口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Adapter implements ThreeIf {
+    private  Two two;
+    public Adapter(Two two) {
+        this.two = two;
+    }
+    @Override
+    public void powerThree() {
+        System.out.println(&quot;----Adapter running! Two --&amp;gt; Three -----&quot;);
+        two.show();
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;在这里可以看到，转换后实现的方法实际上还是不兼容类的原有方法。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;4.测试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class Computer {
+    public static void main(String[] args){
+        Two t = new Two();
+        ThreeIf three = new Adapter(t);
+        three.powerThree();
+    }
+}
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;5.通过继承方式：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+public class UseExtend extends Two implements ThreeIf {
+    @Override
+    public void powerThree() {
+        System.out.println(&quot;***********&quot;);
+        this.show();
+    }
+}
+测试：
+ThreeIf te = new UseExtend();
+te.powerThree();
+&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;策略模式&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+更好的实现代码复用，其思想为将可变的部分抽象为接口。子类继承父类时，会继承父类所有的成员，对于有些成员属性，不同子类有不同需求，如果通过复写，会导致工作量增大，无法实现代码复用。&lt;br /&gt;
+通过策略模式，创建一个策略接口，用来规范某个方法。&lt;br /&gt;
+策略方法类通过实现这个接口复写方法。&lt;br /&gt;
+在父类中，得到通过策略接口的多态引用来调用策略方法，每个子类通过将不同的策略方法类set到父类的多态引用中去，从而实现复写后的策略方法。&lt;br /&gt;
+总的来说，就是将可变的方法单独拿出来写，子类需要哪个就将哪个set到父类中。&lt;br /&gt;
+策略模式使用范围：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;许多相关的类仅仅是行为差异&lt;/li&gt;
+  &lt;li&gt;运行时选取不同的算法变体&lt;/li&gt;
+  &lt;li&gt;通过条件语句在多个分支中选取&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;代码如下：
+父类&lt;/p&gt;
+
+&lt;pre&gt;
+public abstract class Duck {
+//鸣叫，所有子类都会有的方法
+    void quary(){
+        System.out.println(&quot;gagagagagaga......&quot;);
+    }
+//外观，不同子类不同，自行复写
+    abstract void display();
+//策略接口的引用
+    private FlyStrategy fs;
+//接收子类中策略方法到父类中来
+    void setFs(FlyStrategy fs) {
+        this.fs = fs;
+    }
+//通过多态利用接口引用调用方法
+    void fly(){
+        fs.performfly();
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;策略接口&lt;/p&gt;
+
+&lt;pre&gt;
+public interface FlyStrategy {
+    void performfly();
+}
+&lt;/pre&gt;
+&lt;p&gt;策略方法类&lt;/p&gt;
+
+&lt;pre&gt;
+public class FlayWithWings implements FlyStrategy {
+    @Override
+    public void performfly() {
+        System.out.println(&quot;I use wings to fly&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;子类1&lt;/p&gt;
+
+&lt;pre&gt;
+public class LittleDuck extends Duck {
+
+    public LittleDuck() {
+        super();
+        //在构造器中讲此策略方法set到父类中去
+        super.setFs(new FlayWithWings());
+    }
+
+    @Override
+    void display() {
+        System.out.println(&quot;I am a little duck&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;子类2&lt;/p&gt;
+
+&lt;pre&gt;
+public class BigDuck extends Duck{
+    public BigDuck() {
+        super();
+        super.setFs(new FlayWithWings());
+    }
+
+    @Override
+    void display() {
+        System.out.println(&quot;I am a Big duck&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;测试&lt;/p&gt;
+
+&lt;pre&gt;
+public class Text {
+    public static void main(String[] args){
+        Duck duck;
+        duck=new LittleDuck();
+
+        duck.quary();
+        duck.display();
+        duck.fly();
+    }
+}
+&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;责任链模式&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+责任链模式是一种事物处理机制，存在多个处理系统构成一个链，当当前系统无法处理事件时，会将该事件传递给上一级系统进行处理。  客户端请求事件得到结果不关心到底是由责任链中的哪个系统处理的该事件。&lt;br /&gt;
+Java中的异常处理模式、前端的js事件模式，以及web中的过滤模式都是责任链模式的一种体现。&lt;br /&gt;
+代码如下：&lt;/p&gt;
+
+&lt;p&gt;1.创建一个父类处理系统，其子类继承它，实现不同层次的处理&lt;/p&gt;
+
+&lt;pre&gt;
+public abstract class PriceHinder {
+    //设置successor
+    protected PriceHinder successor;
+    public void setPriceHinder(PriceHinder successor) {
+        this.successor = successor;
+    }
+    //处理事件
+    public abstract void PriceCounter(float count);
+}
+&lt;/pre&gt;
+&lt;p&gt;2.创建多个子类处理系统，凑成不同层次处理关系&lt;/p&gt;
+
+&lt;pre&gt;
+public class Sales extends PriceHinder {
+    //满足条件则处理，否则丢给上一级去处理。工厂中将此类的successor设置为了Manager
+    @Override
+    public void PriceCounter(float count) {
+    //自己能处理则自己处理，否则交给successor去处理
+        if (count&amp;lt;=0.05) System.out.println(&quot;Sales agree the count&quot;);
+        else successor.PriceCounter(count);
+    }
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class Manager extends PriceHinder {
+    //满足条件则处理，否则丢给上一级去处理。工厂中将此类的successor设置为了CEO
+    @Override
+    public void PriceCounter(float count) {
+        if (count&amp;lt;=0.25) System.out.println(&quot;Manager agree the count&quot;);
+        else successor.PriceCounter(count);
+    }
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class Ceo extends PriceHinder {
+    @Override
+    public void PriceCounter(float count) {
+        if (count&amp;lt;=0.55) System.out.println(&quot;CEO agree the count&quot;);
+        else System.out.println(&quot;CEO disagree the count&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;3.创建一个工厂用来处理系统初始化及构建责任链&lt;/p&gt;
+
+&lt;pre&gt;
+public class HinderFactory {
+
+    public static PriceHinder creatHinder(){
+        //初始化
+        PriceHinder sales = new Sales();
+        PriceHinder man = new Manager();
+        PriceHinder ceo = new Ceo();
+        //设置每一个子类中的successor为上一级的对象，构成责任链
+        sales.setPriceHinder(man);
+        man.setPriceHinder(ceo);
+        //责任链初始为sales
+        return sales;
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;4.客户端测试&lt;/p&gt;
+
+&lt;pre&gt;
+public class Consumer {
+    private PriceHinder priceHinder;
+
+    public void setPriceHinder(PriceHinder priceHinder) {
+        this.priceHinder = priceHinder;
+    }
+    public void requestCount(float count){
+        priceHinder.PriceCounter(count);
+    }
+    public static void main(String[] args){
+        //客户初始化
+        Consumer consumer = new Consumer();
+        //初始化责任链起点，起点为sales
+        consumer.setPriceHinder(HinderFactory.creatHinder());
+        //用随机数模拟测试100次
+        Random rand = new Random();
+        float n=0;
+        for (int i=1;i&amp;lt;=100;i++){
+            n=rand.nextFloat();
+            System.out.print(n+&quot;:&quot;);
+            consumer.requestCount(n);
+        }
+&lt;/pre&gt;
+&lt;p&gt;在sales中，如果count满足条件，自己处理，不然，交给successor处理。
+因为sales继承PriceHinder类，所以有successor对象，在工厂中，sales中的successor已经被指定为Manager对象，所以在sales中的else方法中，实际上调用的是Manager中的方法。
+由于责任链模式需要遍历，时间浪费，且有多个对象空闲等待，造成内存浪费，所以应用要根据实际情况考虑。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;模板方法模式&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+构建一个抽象基类，实现一些固定的方法，将一些可变的方法定义为抽象方法，交给子类去继承重写，最后将所有方法组合成一个不可改变的模板方法。
+步骤：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;创建一个抽象基类，实现一些固定的方法，不定的方法定义为抽象方法交给子类实现。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+public abstract class Template {
+    protected final void templateMethod(){
+        //将水煮沸
+        boilWater();
+        //冲泡饮料
+        drew();
+        //倒进杯子
+        pourInCup();
+        //加点调料，通过钩子函数判断子类是否需要该功能
+        if (isAddContiment())
+        addContiment();
+    }
+
+    private void boilWater() {
+        System.out.println(&quot;水烧开了&quot;);
+    }
+    private void pourInCup() {
+        System.out.println(&quot;把饮料倒进杯子&quot;);
+    }
+    protected abstract void drew();
+
+    protected abstract void addContiment();
+    //钩子函数，用来表明子类需不需要添加调料
+    protected boolean isAddContiment(){
+        return true;
+    }
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;设置子类&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+public class Tea extends Template {
+
+    @Override
+    protected void drew() {
+        System.out.println(&quot;添加西湖龙井，浸泡茶水&quot;);
+    }
+
+    @Override
+    protected void addContiment() {
+        System.out.println(&quot;添加菊花&quot;);
+    }
+
+    // 不添加调料
+    @Override
+    protected boolean isAddContiment() {
+        return false;
+    }
+}
+&lt;/pre&gt;
+&lt;pre&gt;
+public class Coffee extends Template {
+    @Override
+    protected void drew() {
+        System.out.println(&quot;开水浸泡咖啡豆，冲泡咖啡&quot;);
+    }
+
+    @Override
+    protected void addContiment() {
+        System.out.println(&quot;添加牛奶和糖&quot;);
+    }
+    //不复写，或者返回true都代表添加，因为默认是添加
+    @Override
+    protected boolean isAddContiment() {
+        return true;
+    }
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;测试&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+public class Text {
+    public static void main(String[] args){
+        Template tea = new Tea();
+        tea.templateMethod();
+        System.out.println(&quot;\n******************&quot;);
+        Template cof = new Coffee();
+        cof.templateMethod();
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;核心思想是变与不变分离，不变的在基类中实现，变的交给子类实现。&lt;br /&gt;
+模板方法将所有方法汇总成一个final修饰的不可改变的方法。&lt;br /&gt;
+为了保证子类的灵活，可在基类中设置可继承的钩子函数，用来决定子类是否需要某些功能。&lt;br /&gt;
+钩子函数可以如本例中的判断，或者构建一个空的函数，由子类添加具体实现。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;观察者模式&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;目标对象基类、具体的目标对象、观察者接口，具体的观察者。&lt;br /&gt;
+当具体的目标对象发布信息时，所有观察者都会收到信息，实现同步。&lt;br /&gt;
+代码如下：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;目标对象基类&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 目标类，用来管理所有注册过的观察者，添加、删除、储存、通知更新
+ */
+public class Subject {
+    //设置存储数组，用来存储所有观察者
+    private ArrayList&amp;lt; Observe&amp;gt; observes = new ArrayList&amp;lt; Observe&amp;gt;();
+    //添加
+    public void addObserve(Observe observe){
+        observes.add(observe);
+    }
+    //删除
+    public void deletObserve(Observe observe){
+        observes.remove(observe);
+    }
+    //已注册的观察者更新状态
+    protected void update(){
+        for (Observe o:observes) {
+            o.update(this);
+        }
+    }
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;具体的目标类&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 具体的天气预报目标
+ */
+public class WeatherSubject extends Subject{
+    //天气状态
+    private String WeatherState;
+    public String getWeatherState() {
+        return WeatherState;
+    }
+    //设置天气状态时（更新），调用更新方法通知所有观察者进行更新
+    public void setWeatherState(String weatherState) {
+        this.WeatherState = weatherState;
+        this.update();
+    }
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;观察者接口&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 观察者接口
+ */
+public interface IObserveInterface {
+    public void update(Subject subject);
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;具体的观察者&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 具体的观察者类
+ */
+public class Observe implements IObserveInterface {
+    //定义观察者的姓名、提示信息，以及天气状态（由目标提供）
+    private String name=&quot;&quot;;
+    private String message=&quot;&quot;;
+    private String state=&quot;&quot;;
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    @Override
+    public void update(Subject subject) {
+        state=((WeatherSubject)subject).getWeatherState();
+        System.out.println(getName()+&quot;收到了&quot;+state+&quot;,&quot;+getMessage());
+    }
+}
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;测试&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+/**
+ * Created by jiangwenbin on 16/12/6.
+ */
+public class Text {
+    public static void main(String[] args){
+
+        //创建目标
+        WeatherSubject weatherSubject = new WeatherSubject();
+        //创建观察者
+        Observe girl = new Observe();
+        girl.setName(&quot;女朋友&quot;);
+        girl.setMessage(&quot;第一次约会，黄石公园&quot;);
+
+        Observe mom = new Observe();
+        mom.setName(&quot;妈妈&quot;);
+        mom.setMessage(&quot;去购物&quot;);
+        //注册观察者
+        weatherSubject.addObserve(girl);
+        weatherSubject.addObserve(mom);
+        //发布天气
+        weatherSubject.setWeatherState(&quot;明天天气晴朗&quot;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;观察者模型有推模式和拉模式，上面例子中的是拉模式，用户自己根据需求从目标出获取相关数据。&lt;br /&gt;
+而推模型是目标将信息直接推送给观察者，这种情况需要对观察者的接口进行特殊设定，传递特殊的信息。&lt;br /&gt;
+如果要区别对待观察者，则update方法在基类定义为抽象，由具体目标去实现。&lt;br /&gt;
+java本身提供了观察者模式，观察者接口和目标抽象类已经存在，直接用即可。注意使用时，改变信息前，要先调用setChange()方法&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 07 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//java/2016/12/07/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html</link>
+        <guid isPermaLink="true">http://localhost:4000//java/2016/12/07/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html</guid>
+        
+        <category>java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>Java编程之牛人是这么写代码的</title>
+        <description>&lt;p&gt;这篇文章主要记录了一些java题目的牛人解答&lt;/p&gt;
+
+&lt;p&gt;1.给定字符串s，规定字母大于m的为错字符，要求返回s的错误率。如：s=”helloworld”  返回3/10&lt;br /&gt;
+	return s.replaceAll(“[a-m]”,””).length()+”/”+s.length();&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 25 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//java/2016/11/25/Java%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%89%9B%E4%BA%BA%E6%98%AF%E8%BF%99%E4%B9%88%E5%86%99%E4%BB%A3%E7%A0%81%E7%9A%84.html</link>
+        <guid isPermaLink="true">http://localhost:4000//java/2016/11/25/Java%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%89%9B%E4%BA%BA%E6%98%AF%E8%BF%99%E4%B9%88%E5%86%99%E4%BB%A3%E7%A0%81%E7%9A%84.html</guid>
+        
+        <category>java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>JSP基础</title>
+        <description>&lt;p&gt;这篇文章主要内容为jsp的一些入门基础&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JSP指令&lt;/strong&gt;&lt;br /&gt;
+page指令：通常位于jsp页面的顶端，同一个页面可以有多个page指令。&lt;br /&gt;
+include指令：讲一个外部文件嵌入到当前的jsp文件中，同时解析这个页面中的jsp语句。&lt;br /&gt;
+taglib指令：使用标签库定义新的自定义标签，在jsp页面中启用定制行为。&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;page指令&lt;/strong&gt;&lt;br /&gt;
+语法：&amp;lt;%@ page 属性1=“属性值” 属性2=“属性值1，属性值2”…属性n=”属性值n”%&amp;gt;&lt;br /&gt;
+page常用属性：&lt;br /&gt;
+language：制定jsp页面使用的脚本语言，默认java。&lt;br /&gt;
+import：通过该属性来引用脚本语言中使用到的类文件。&lt;br /&gt;
+contentType：用来制定jsp页面所采用的编码方式，默认值为text/html,ISO-8859-1.&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;JSP注释&lt;/strong&gt;&lt;br /&gt;
+HTML的注释：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!-- html注释--&amp;gt;&lt;/code&gt; //客户端可见&lt;br /&gt;
+jsp的注释：&amp;lt;%–html注释–%&amp;gt;  //客户端不可见&lt;br /&gt;
+jsp脚本注释：//单行注释	   /&lt;em&gt;多行注释&lt;/em&gt;/&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;JSP脚本&lt;/strong&gt;&lt;br /&gt;
+在jsp页面中执行的java代码。&lt;br /&gt;
+语法： &amp;lt;% java代码 %&amp;gt;&lt;br /&gt;
+&lt;strong&gt;JSP声明&lt;/strong&gt;&lt;br /&gt;
+在jsp页面中定义变量或者方法。&lt;br /&gt;
+语法：&amp;lt;%! java代码 %&amp;gt;&lt;br /&gt;
+&lt;strong&gt;JSP表达式&lt;/strong&gt;&lt;br /&gt;
+在jsp页面中执行的表达式，用于将表达式的结果输出至页面上。&lt;br /&gt;
+语法：&amp;lt;%=表达式 %&amp;gt; //注意：表达式后面不用加分号&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;jsp页面的生命周期&lt;/strong&gt;&lt;br /&gt;
+用户发出请求index.jsp；&lt;br /&gt;
+if(是第一次发出请求){&lt;br /&gt;
+jsp引擎把该jsp文件转换成一个Servlet，生成字节码文件，并执行jspInit（）&lt;br /&gt;
+}&lt;br /&gt;
+生成的字节码文件；&lt;br /&gt;
+解析执行.jspService();&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;jsp生命周期&lt;/strong&gt;&lt;br /&gt;
+jspService()方法被调用来处理客户端的请求，对每一个请求，jsp引擎创建一个新的线程来处理该请求。如果有多个客户端同时请求该JSP文件，则JSP引擎会创建多个线程。每个客户端请求对应一个线程，以多线程方式执行可以大大降低对系统的资源需求，提高系统的并发量及相应时间。但也要注意多线程的编程带来的同步问题，由于该Servlet始终驻于内存，所以响应是非常快的。&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;内置对象&lt;/strong&gt;&lt;br /&gt;
+jsp内置对象是web容器创建的一组对象，不使用new关键字就可以使用的内置对象。&lt;br /&gt;
+常用的内置对象有：out,request,response,session,application,Page,pageContext,exception,config九种&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;out对象&lt;/strong&gt;&lt;br /&gt;
+out对象是jspWriter类的实例，是向客户端输出内容的常用对象.常用方法：&lt;br /&gt;
+1、void println()向客户端打印字符串&lt;br /&gt;
+2、void clear()清楚缓冲区的内容，如果在flush之后调用会抛出异常&lt;br /&gt;
+3、void clearBuffer() 清楚缓冲区的内容，如果在flush后调用不会抛出异常&lt;br /&gt;
+4、void flush()将缓冲区内容输出到客户端&lt;br /&gt;
+5、int getBufferSize()返回缓冲区以字节数的大小，如不舍缓冲区则为0&lt;br /&gt;
+6、int getRemaining()返回缓冲区还剩余多少可用&lt;br /&gt;
+7、boolean isAutoFlush()返回缓冲区满时，是否自动清空还是抛出异常&lt;br /&gt;
+8、void close()关闭输出流&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;get与post的区别&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;form name=&quot;regForm&quot; action=&quot;要提交给的页面.jsp&quot; method=&quot;post/get&quot;&amp;gt; &amp;lt;/form&amp;gt;&lt;/code&gt;&lt;br /&gt;
+表单有两种提交方式：get与post&lt;br /&gt;
+1、get：以明文的方式通过URL提交数据，数据再URL中可看到。提交的数据最多不超过2KB。安全性较低但效率比post方式高，适合提交数据量不大，安全性不高的数据。如：搜索、查询等功能。&lt;br /&gt;
+2、post：将用户提交的信息凤凰唉HTML HEADER内。适合提交数据量大，安全性高的用户信息。比如：注册、修改、上传等功能。&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;request对象&lt;/strong&gt;&lt;br /&gt;
+客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是HttpServletRequest类的实例。request对象具有请求域，即完成客户端的请求之前，该对象一直有效。常用方法如下：&lt;br /&gt;
+String getParameter(String name)返回name指定参数的参数值&lt;br /&gt;
+String[] getParameterValues(String name) 返回包含参数name的所有值的数组&lt;br /&gt;
+void setAttribute(String,object) 设置属性的属性值&lt;br /&gt;
+object getAttribute(String name)返回指定属性的属性值&lt;br /&gt;
+String getContentType()得到请求头的MIME类型&lt;br /&gt;
+String getProtocol()返回请求用的协议类型及版本号&lt;br /&gt;
+String getServerName()返回接收请求的服务器主机名&lt;br /&gt;
+int getServerPort()返回服务器接收此请求所用的端口号&lt;br /&gt;
+String getCharacterEncoding()返回字符编码方式&lt;br /&gt;
+void setCharacterEncoding()设置请求的字符编码方式&lt;br /&gt;
+int getContentLength()返回请求体的长度（以字节数）&lt;br /&gt;
+String getRemoteAddr()返回发送次请求的客户端IP地址&lt;br /&gt;
+String getRealPath(String path)返回虚拟路径的真是路径&lt;br /&gt;
+String getContextPath()返回上下文路径&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;response对象&lt;/strong&gt;&lt;br /&gt;
+response对象包含了相应客户端请求的有关信息，但在jsp中很少直接用到它。它是HttpServletResponse对象的实例。response对象具有页面作用域，即访问一个页面时，该页面内的response对象只能对这次访问有效，其他页面的response对象对当前页面无效。常用方法如下：&lt;br /&gt;
+String getCharacterEncoding()返回响应用的何种字符编码&lt;br /&gt;
+void setContentType(String type)设置响应的MIME类型&lt;br /&gt;
+PrintWriter/getWriter()返回可以向客户端输出字符的一个对象（与out对象有区别）&lt;br /&gt;
+sendRedirect(java.lang.String location)重新定向客户端的请求&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;请求转发与请求重定向&lt;/strong&gt;&lt;br /&gt;
+请求重定向：客户端行为，response.sendRedirect(),从本质上讲等同于两次请求，前一次的请求对象不会保存，地址的URL地址会改变&lt;br /&gt;
+请求转发：服务器行为，resquest.getRequestDispatcher().forward(request,response);是一次请求，转发后请求对象会被保存，地址栏的URL地址不会改变&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;什么是session&lt;/strong&gt;&lt;br /&gt;
+session表示客户端与服务器的一次对话&lt;br /&gt;
+web中的session值得是用户在浏览某个网站时，从进入网站到浏览器挂壁所经过的这段时间，也就是用户浏览这个网站所花费的时间&lt;br /&gt;
+从上述定义中可用看到，session实际上是一个特定的时间概念&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;session对象&lt;/strong&gt;&lt;br /&gt;
+session对象是一个jsp内置对象&lt;br /&gt;
+session对象在第一个jsp页面被装载时自动创建，完成会话期管理。&lt;br /&gt;
+从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离开这个服务器结束，被恒伟一个回话。&lt;br /&gt;
+当一个客户访问一个服务器时，可能会在服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要session对象。&lt;br /&gt;
+session对象是HttpSession类的实例。&lt;br /&gt;
+常用方法如下：&lt;br /&gt;
+long getCreationTime()返回session创建时间&lt;br /&gt;
+public String getId()返回session创建时jsp引擎为它设的唯一Id号&lt;br /&gt;
+public Object setAttribute(String name,object value)使用指定名称将对象绑定到此会话,即添加属性&lt;br /&gt;
+public Object getAttribute(String name)返回与此会话中指定名称绑定在一起的对象，如果没有对象绑定在该名称下，则返回null&lt;br /&gt;
+String[] getValueNames()返回一个包含此session中所有可用属性的数组&lt;br /&gt;
+int getMaxInactiveInterval()返回两次请求间隔多长时间此session被取消（单位为秒）&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;session生命周期&lt;/strong&gt;&lt;br /&gt;
+创建：当客户端对此访问某个jsp或者Servlet时候，服务器会为当前回话创建一个SessionId，每次客户端向服务端发送请求时，都会将此SessionId携带过去，服务端会对此SessionId进行校验。&lt;br /&gt;
+活动：某次会话中通过超链接打开的新页面属于同一次会话。&lt;br /&gt;
+只要当前会话没有全部关闭，重新打开新的浏览器窗口访问同一项目资源时属于同一次会话。
+除非本次会话的所有页面关闭后再重新访问某个jsp或者Servlet将会创建新的会话&lt;br /&gt;
+注意：原有对话还存在，只是这个旧的SessionId仍然存在于服务器，只不过再也没有客户端会携带它然后交于服务端校验。&lt;br /&gt;
+销毁：1，调用session.invalidate()方法；2，Session过期（超时）；3，服务器重启&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Session对象&lt;/strong&gt;&lt;br /&gt;
+Tomcat默认session超时时间为30分钟&lt;br /&gt;
+设置session超时有两种方式：&lt;br /&gt;
+1，session.setMaxInactiveInterval(time);&lt;br /&gt;
+2,在web.xml配置
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;session-timeout&amp;gt;&lt;/code&gt; 10 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;/session-timeout&amp;gt;&lt;/code&gt;单位是分钟&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;application对象&lt;/strong&gt;&lt;br /&gt;
+application对象实现了用户间数据的共享，可存放全局变量&lt;br /&gt;
+application开始于服务器的启动，终止于服务器的关闭&lt;br /&gt;
+在用户的前后连接或不同用户之间的连接中，可以对application对象的同意属性进行操作。&lt;br /&gt;
+在任何地方对application对象属性的操作，都将影响到其他用户对此的访问&lt;br /&gt;
+服务器的启动和关闭决定了application对象的生命&lt;br /&gt;
+application对象是ServletContext类的实例&lt;br /&gt;
+常用方法如下：&lt;br /&gt;
+public void setAttribute(String name,Object value)使用指定名称将对象绑定到此会话。&lt;br /&gt;
+public Object getAttribute(String name)返回与此会话中的指定名称绑定在一起的对象，如果没有对象绑定在该名称下，返回null&lt;br /&gt;
+Enumeration getAttributeNames()返回所有可用属性名的枚举&lt;br /&gt;
+String getServerInfo()返回jsp(SERVLET)引擎名和版本号&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;page对象&lt;/strong&gt;&lt;br /&gt;
+page对象就是指向当前jsp页面本身，有点像类中的this指针，它是java.lang.Object类的实例。常用方法如下：&lt;br /&gt;
+class getClass()返回Object的类&lt;br /&gt;
+int hashCode()返回Object的hash码&lt;br /&gt;
+boolean equals(object obj)判断此object是否与指定的object对象相等 &lt;br /&gt;
+void copy(object obj)将此obj拷贝到指定的obj对象中&lt;br /&gt;
+Object clone()克隆此obj对象&lt;br /&gt;
+String toString()将此obj对象转换成String类的对象&lt;br /&gt;
+void notify()唤醒一个等待的线程&lt;br /&gt;
+void notifyAll()唤醒所有等待的线程&lt;br /&gt;
+void wait(int timeout)是一个线程处于等待知道timeout结束或被唤醒&lt;br /&gt;
+void wait()是一个线程处于等待直到被唤醒&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;pageContext对象&lt;/strong&gt;&lt;br /&gt;
+pageContext对象提供了对jsp页面内所有的对象及名字空间的访问&lt;br /&gt;
+pageContext对象可以访问到本业所在的session，也可以取本页面所在的application的某一属性值&lt;br /&gt;
+pageContext对象相当于页面中所有功能的集大成者&lt;br /&gt;
+pageContext对象本类名也叫pageContext&lt;br /&gt;
+常用方法如下：&lt;br /&gt;
+JspWriter getOut()返回当前客户端响应被使用的JspWriter流（out）&lt;br /&gt;
+HttpSeesion getSession()返回当前页中的HttpSession对象（session）&lt;br /&gt;
+Object getPage()返回当前页的Object对象（page）&lt;br /&gt;
+ServletRequest getRequest()返回当前页的ServletRequest对象&lt;br /&gt;
+ServletResponse getResponse()返回当前页的ServletResponse对象&lt;br /&gt;
+void setAttribute(String name,Object attribute)设置属性及属性值&lt;br /&gt;
+Object getAttribute(String name,int scope)在指定范围内取得属性的值&lt;br /&gt;
+int getAttributeScope(String name)返回某属性的作用范围&lt;br /&gt;
+void forward(String relativeUrlPath)是当前页面重导到另一页面&lt;br /&gt;
+void include(String relativeUrlPath)在当前位置包含另一文件&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Config对象&lt;/strong&gt;&lt;br /&gt;
+config对象实在一个Servlet初始化时，JSP引擎向它传递信息用的，此消息包括Servlet初始化是所用到的参数（通过属性名和属性值构成）以及服务器的有关信息（通过传递一个ServletContext对象），常用方法：&lt;br /&gt;
+ServletContext getServletContext()返回含有服务器相关信息的ServletContext对象&lt;br /&gt;
+String getInitParameterNames()返回初始化参数的值&lt;br /&gt;
+Enumeration getInitParameterNames()返回Servlet初始化所需所有参数的枚举&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Exception对象&lt;/strong&gt;&lt;br /&gt;
+exception对象是一个异常对象，当一个页面在运行过程中发生了异常，就产生这个对象。如果一个JSP页面要应用此对象，必须把isErrorPage设为true，否则无法编译。它实际是java.lang.Throwable的对象。常用方法：&lt;br /&gt;
+String getMessage()返回描述异常的消息&lt;br /&gt;
+String toString()返回关于异常的简短描述消息&lt;br /&gt;
+void printStackTrace()显示异常及其栈轨迹&lt;br /&gt;
+Throwable FillInStackTrace()重写异常的执行栈轨迹&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Javabean&lt;/strong&gt;&lt;br /&gt;
+javabeans就是符合某种特定规范的java类。使用javabeans的好处是解决代码重复编写减少代码冗余，功能区分明确，提高代码的维护性。&lt;br /&gt;
+设计原则：共有类，无参的共有构造方法，属性私有，getter和setter方法&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Jsp动作&lt;/strong&gt;&lt;br /&gt;
+动作元素为请求处理阶段提供信息。动作元素遵循XML元素的语法，有一个包含元素名的开始标签，可以有属性，可选的内容，与开始标签匹配的结束标签。&lt;br /&gt;
+第一类是与存取JavaBran有关的，包括：&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:useBean&amp;gt;&amp;lt;jsp:setProperty&amp;gt;&amp;lt;jsp:getProperty&amp;gt;&lt;/code&gt;&lt;br /&gt;
+第二类是JSP1.2就开始有的基本元素，包括六个动作元素&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:include&amp;gt;&amp;lt;jsp:forward&amp;gt;&amp;lt;jsp:param&amp;gt;&amp;lt;jsp:plugin&amp;gt;&amp;lt;jsp:params&amp;gt;&amp;lt;jsp:fallback&amp;gt;&lt;/code&gt;&lt;br /&gt;
+第三类是JSP2.0新增的元素，主要与JSP Document有关，包括六个元素&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:root&amp;gt;&amp;lt;jsp:declaration&amp;gt;&amp;lt;jsp:scriptlet&amp;gt;&amp;lt;jsp:expression&amp;gt;&amp;lt;jsp:text&amp;gt;&amp;lt;jsp:output&amp;gt;&lt;/code&gt;&lt;br /&gt;
+第四类是JSP2.0新增的动作元素，主要用来动态生成XML元素标签的值，包括3各动作&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:attribute&amp;gt;&amp;lt;jsp:body&amp;gt;&amp;lt;jsp:element&amp;gt;&lt;/code&gt;&lt;br /&gt;
+第五类是JSP2.0新增的动作元素，主要是用在Tag File中，有2个元素&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:invoke&amp;gt;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:dobody&amp;gt;&lt;/code&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;在jsp页面中使用javabeans&lt;/strong&gt;&lt;br /&gt;
+1.像使用普通java类一样，用new创建javabean实例&lt;br /&gt;
+2.在Jsp页面中通常使用jsp动作标签使用javabean：useBeans,setProperty,getProperty&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:useBeans&amp;gt;&lt;/code&gt;&lt;br /&gt;
+作用：在jsp页面中实例化或者在指定范围内使用javabean：&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:useBean id=&quot;标示符&quot; class=&quot;java类名（包含包名）&quot; scope=&quot;作用范围&quot;/&amp;gt;&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:setProperty&amp;gt;&lt;/code&gt;&lt;br /&gt;
+作用：给应实例化的javabean对象的属性赋值，一共四中形式。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:setProperty name = &quot;javaBean实例名&quot; property=&quot;*&quot;/&amp;gt;&lt;/code&gt;(跟表单关联)&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:setProperty name = &quot;javaBean实例名&quot; property=&quot;javaBean属性名&quot;/&amp;gt;&lt;/code&gt;(跟表单关联)&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:setProperty name = &quot;javaBean实例名&quot; property=&quot;javaBean属性名&quot; value=&quot;BeanValue&quot;/&amp;gt;&lt;/code&gt;(手工设置)&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:setProperty name = &quot;javaBean实例名&quot; property=&quot;propertyName&quot; param=&quot;request对象中的参数名&quot;/&amp;gt;&lt;/code&gt;(跟request参数关联)&lt;br /&gt;
+以上，第一种方法所有属性自动与表单中的同“name”的属性自动匹配；第二种方法是限定某些属性自动匹配；第三种方法属性的值由value手工设置；第四种属性值由action=”XXX.jsp”?参数=？？？中的这个参数的值。&lt;br /&gt;
+&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:getProperty&amp;gt;&lt;/code&gt;&lt;br /&gt;
+作用：获取指定javabean对象的属性值&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:getProperty name=&quot;javaBean实例名&quot; property=&quot;属性名&quot;/&amp;gt;&lt;/code&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;javabean的四个作用域范围&lt;/strong&gt;&lt;br /&gt;
+说明：使用useBrans的scope属性可以用来指定范围&lt;br /&gt;
+page:仅在当前页面有效&lt;br /&gt;
+request：可以通过HttpRequest.getAttribute()方法取得javabean对象&lt;br /&gt;
+session：可以通过HttpSession.getAttribute()方法取得javabean对象&lt;br /&gt;
+application：可以通过application.getAttribute()方法取得javabean对象&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;http协议的无状态性&lt;/strong&gt;&lt;br /&gt;
+无状态是指，当浏览器发送请求给服务器时，服务器想要客户端请求。但是当同一个浏览器再次发出请求给服务器时，服务器并不知道它就是刚才那个浏览器。&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Jsp中创建于使用Cookie&lt;/strong&gt;&lt;br /&gt;
+创建Cookie对象&lt;br /&gt;
+Cookie newCookie = new Cookie(String key,Object value);&lt;br /&gt;
+写入Cookie对象&lt;br /&gt;
+response.addCookie(newCookie);&lt;br /&gt;
+读取Cookie对象&lt;br /&gt;
+Cookie[] cookies = request.getCookies();&lt;br /&gt;
+Cookie的构造器和Map是相似的，由键值对构成，key可以自己设置，value为对应存储的值&lt;br /&gt;
+常用方法：&lt;br /&gt;
+void setMaxAge(int expiry):设置cookie的有效期，单位秒&lt;br /&gt;
+void setValue(String value):在cookie创建后，对cookie进行赋值&lt;br /&gt;
+String getName()：获取cookie的key&lt;br /&gt;
+String getValue():获取cookie的value&lt;br /&gt;
+int getMaxAge():获取cookie的有效时间，单位秒&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;session与cookie对比&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;session&lt;/th&gt;&lt;th&gt;cookie&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;在服务器端保存用户信息&lt;/td&gt;&lt;td&gt;在客户端保存用户信息&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;保存object类&lt;/td&gt;&lt;td&gt;保存String类&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;随会话的结束将村塾数据销毁&lt;/td&gt;&lt;td&gt;可以长期保存在客户端&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;保存重要的信息&lt;/td&gt;&lt;td&gt;保存不重要的信息&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;include指令&lt;/strong&gt;&lt;br /&gt;
+语法：&amp;lt;%@ include file=”URL”%&amp;gt;&lt;br /&gt;
+include动作&lt;br /&gt;
+语法:&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:include page=&quot;URL&quot; flush=&quot;true|false&quot;/&amp;gt;&lt;/code&gt;&lt;br /&gt;
+page表示要包含的页面，flush表示被包含的页面是否从缓冲区读取&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;include指令与include动作比较&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;table&gt;
+	&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;include指令&lt;/th&gt;&lt;th&gt;include动作&lt;/th&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;发生作用的时间&lt;/td&gt;&lt;td&gt;页面转换期间&lt;/td&gt;&lt;td&gt;请求期间&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;包含的内容&lt;/td&gt;&lt;td&gt;文件的实际内容（代码）&lt;/td&gt;&lt;td&gt;页面的输出&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;转换成的Servlet&lt;/td&gt;&lt;td&gt;主页面和包含页面转换为一个Servlet&lt;/td&gt;&lt;td&gt;主页面和包含页面转换为独立的Srevlet&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;编译时间&lt;/td&gt;&lt;td&gt;较慢-资源必须被解析&lt;/td&gt;&lt;td&gt;较快&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;执行时间&lt;/td&gt;&lt;td&gt;稍快&lt;/td&gt;&lt;td&gt;较慢-每次资源必须被解析&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;forward动作&lt;/strong&gt;&lt;br /&gt;
+语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:forward page = &quot;URL&quot;/&amp;gt;&lt;/code&gt;&lt;br /&gt;
+等同于request.getRequestDispatcher(“/url”).forward(request,response);&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;param动作&lt;/strong&gt;&lt;br /&gt;
+语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:param name=&quot;参数名&quot; value=&quot;参数值&quot;&amp;gt;&lt;/code&gt;&lt;br /&gt;
+常常与&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;jsp:forward&amp;gt;&lt;/code&gt;一起使用，作为其子标签，用来改变指定参数的值&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//html/2016/11/21/jsp%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://localhost:4000//html/2016/11/21/jsp%E7%AC%94%E8%AE%B0.html</guid>
+        
+        <category>JSP</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+      <item>
+        <title>Mysql基础命令</title>
+        <description>&lt;p&gt;本文主要记录了一些基础的mysql入门指令&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;语句规范&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;关键字和函数名大写&lt;/li&gt;
+  &lt;li&gt;数据库名、表名、字段名全部小写&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;分号结尾&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;登录数据库&lt;/strong&gt;&lt;br /&gt;
+mysql -uroot -proot(账号：root，密码root)&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;创建数据库&lt;/strong&gt;&lt;br /&gt;
+CREATE {DATABASE|SCHAME} [IF NOT EXITS] 数据库名 [DEFAULT]CHARACTER SET=字符集名；&lt;br /&gt;
+CREATE DATABASE table1 CHARACTER SET=gbk;//创建一个编码格式为gbk的名为table1的数据库&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;查看当前服务器下的数据库列表&lt;/strong&gt;  &lt;br /&gt;
+ 	SHOW {DATABASE|SCHAME}[LIKE ‘PATERN’|WHERE EXPR]；&lt;br /&gt;
+	SHOW DATABASES;//显示所有数据库&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;查看警告信息&lt;/strong&gt;&lt;br /&gt;
+	SHOW WARNINGS；&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;查看数据库创建时所使用的命令&lt;/strong&gt;&lt;br /&gt;
+ SHOW CREATE DATABASE 数据库名；&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;修改数据库的编码方式&lt;/strong&gt;&lt;br /&gt;
+ALTER {DATABASE|SCHAME} 数据库名 [DEFAULT] CHARACTER SET=字符编码集；&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;删除数据库&lt;/strong&gt;&lt;br /&gt;
+DROP {DATABASE|SCHAME} IF EXISTS 数据库名；&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;创建数据表&lt;/strong&gt;
+使用USE进入数据库后，创建table
+CREATE TABLE[IF NOT EXISTS] table_name(
+column_name data_type,
+…
+)&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;查看数据表&lt;/strong&gt;
+SHOW TABLES [FROM db_name] [LIKE ‘pattern’| WHERE expr]&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;查看数据表结构&lt;/strong&gt;
+SHOW COLUMNS FROM tbl_name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;插入记录（行）&lt;/strong&gt;
+INSERT[INTO]tbl_name[{col_name,…}]VALUES(val,…)
+如果没有指定tbl_name则需要对所有列属性进行赋值添加&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;记录查找&lt;/strong&gt;
+SELECT expr，…FROM tbl_name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;自动编号&lt;/strong&gt;
+AUTO_INCREMENT
+必须和主键组合使用，默认起始1，每次增1&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;主键约束&lt;/strong&gt;
+PRIMARY KEY
+每张数据表只能存在一个主键，主键保证记录的唯一性，自动为NOT NULL&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;唯一约束&lt;/strong&gt;
+UNIQUE KEY
+唯一约束可以保证记录的唯一性，可以为空值，每张数据表可以存在多个唯一约束&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;默认值&lt;/strong&gt;
+DEFAULT
+当插入记录没有明确为字段赋值，则自动赋予默认值&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;添加列&lt;/strong&gt;
+ALTER TABLE tbl_name ADD[COLUMN] col_name col_definition[FIRST|AFTER col_name]
+ALTER TABLE tbl_name ADD[COLUMN] (col_name col_definition,…)&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;删除列&lt;/strong&gt;
+ALTER TABLE tbl_name DROP[COLUMN] col_name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;添加约束&lt;/strong&gt;
+ALTER TABLE tbl_name ADD[CONSTRAINT[symbol]] PRIMARY KEY&lt;a href=&quot;index_col_name,...&quot;&gt;index_type&lt;/a&gt;
+ALTER TABLE tbl_name ADD[CONSTRAINT[symbol]] UNIQUE [INDEX|KEY] [index_name] &lt;a href=&quot;index_col_name,...&quot;&gt;index_type&lt;/a&gt;
+ALTER TABLE tbl_name ADD[CONSTRAINT[symbol]] FOREIGN KEY&lt;a href=&quot;index_col_name,...&quot;&gt;index_name&lt;/a&gt;reference_definition
+ALTER TABLE tbl_name ADD[COLUMN] col_name{SET DEFAULT literal|DROP DEFAULT}&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;删除约束&lt;/strong&gt;
+ALTER TABLE tbl_name DROP PRIMARY KEY 
+ALTER TABLE tbl_name DROP {INDEX|KEY} index_name
+ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;修改列定义&lt;/strong&gt;
+ALTER TABLE tbl_name MODIFY[COLUMN]col_name column_definition [FIRST|AFTER col_name]&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;整型&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt; 
+	&lt;tr&gt;
+	&lt;th&gt;数据类型&lt;/th&gt;
+	&lt;th&gt;取值范围&lt;/th&gt;
+	&lt;th&gt;占用字节&lt;/th&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+	&lt;td&gt;TINYINT&lt;/td&gt;
+	&lt;td&gt;无符号：0~255(2^8-1)
+		有符号：-128~127（-2^7~-2^7-1）&lt;/td&gt;
+	&lt;td&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+	&lt;td&gt;SMALLINT&lt;/td&gt;
+	&lt;td&gt;无符号：0~65535(2^16-1)
+		有符号：-32768~32767（-2^15~-2^15-1）&lt;/td&gt;
+	&lt;td&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+	&lt;td&gt;MEDIUMINT&lt;/td&gt;
+	&lt;td&gt;无符号：0~2^24-1
+		有符号：-2^23~-2^23-1&lt;/td&gt;
+	&lt;td&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+	&lt;td&gt;INT&lt;/td&gt;
+	&lt;td&gt;无符号：2^32-1
+		有符号：-2^31~-2^31-1&lt;/td&gt;
+	&lt;td&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+	&lt;td&gt;BIGINT&lt;/td&gt;
+	&lt;td&gt;无符号：2^64-1
+		有符号：-2^63~-2^63-1&lt;/td&gt;
+	&lt;td&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;字符型&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;列类型&lt;/th&gt;
+		&lt;th&gt;存储需求&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;CHAR(M)&lt;/td&gt;
+		&lt;td&gt;M个字节，[0,255]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;VARCHAR(M)&lt;/td&gt;
+		&lt;td&gt;L+1个字节，其中L&amp;lt;=M且M[0,65535]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;TINYTEXT&lt;/td&gt;
+		&lt;td&gt;L+1个字节，其中L&amp;lt; 2^8&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;TEXT&lt;/td&gt;
+		&lt;td&gt;L+2个字节，其中L&amp;lt; 2^16&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;MEDIUMTEXT&lt;/td&gt;
+		&lt;td&gt;L+3个字节，其中L&amp;lt; 2^24&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;LONGTEXT&lt;/td&gt;
+		&lt;td&gt;L+4个字节，其中L&amp;lt; 2^32&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;ENUM('value1','value2'...)&lt;/td&gt;
+		&lt;td&gt;1 or 2 个字节，取决于枚举值的个数，最多65535个值&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;SET('value1','value2'...)&lt;/td&gt;
+		&lt;td&gt;1，2，3，4 or 8个字节，取决于set成员数目，最多64个成员&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Sat, 19 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//database/2016/11/19/Mysql.html</link>
+        <guid isPermaLink="true">http://localhost:4000//database/2016/11/19/Mysql.html</guid>
+        
+        <category>sql</category>
+        
+        
+        <category>Database</category>
+        
+      </item>
+    
+      <item>
+        <title>Git操作手册|命令速查表</title>
+        <description>&lt;p&gt;这篇文章主要介绍Git分布式版本管理与集中式管理的一些差异，总结下Git常用命令作为日后的速查表，最后介绍Git进阶的一些案例。
+本文分为以下几个部分：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Git与SVN差异&lt;/li&gt;
+  &lt;li&gt;Git常用命令&lt;/li&gt;
+  &lt;li&gt;Git进阶指南&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;##Git与SVN差异&lt;/p&gt;
+
+&lt;p&gt;Git的第一个版本是Linux之父Linus Torvalds亲手操刀设计和实现的,Git 基于 DAG 结构 (Directed Acyclic Graph)，其运行起来相当的快,它已经是现在的主流。&lt;/p&gt;
+
+&lt;p&gt;Git 和 SVN 思想最大的差别有四个：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;去中心化&lt;/li&gt;
+  &lt;li&gt;直接记录快照，而非差异&lt;/li&gt;
+  &lt;li&gt;不一样的分支概念&lt;/li&gt;
+  &lt;li&gt;三个文件状态&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;去中心化&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Git是一个DVCS（分布式版本管理系统），在技术层面上并不存在一个像中心仓库这样的东西 ， 所有的数据都在本地，不存在谁是中心&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/images/git.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图中每个开发者拉取(pull)并推送(push)到origin。但除了这种集中式的推送拉取关系，每个开发者也可能会从其他的开发者处拉取代码的变更，从技术上讲，这意味着Alice定义了一个名为bob的Git的remote，它指向了Bob的软件仓库。反之亦然。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;直接记录快照，而非差异&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Git每一个版本都是直接记录快照，而非文件的差异。 下面两个对比图在网上是广为流传大家应该熟悉：&lt;/p&gt;
+
+&lt;p&gt;SVN：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/images/svn.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Git:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/images/gitgit.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Git使用SHA-1算法计算数据的校验和，通过文件的内容或目录计算出SHA-1哈希值，作为指纹字符串，每个Version 都是一个快照。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;不一样的分支概念&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Git的分支本质是一个指向提交快照的指针，是从某个提交快照往回看的历史。当创建/切换分支的时候，只是变换了指针指向而已.而SVN创建一个分支， 是的的确确的复制了一份文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;三个文件状态&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在Git中文件有三种状态：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;已提交（committed）：该文件被安全地保存在了本地数据库&lt;/li&gt;
+  &lt;li&gt;已修改（modified）：修改了某个文件，但还没有保存&lt;/li&gt;
+  &lt;li&gt;已暂存（staged）：把已修改的文件放下下次保存的清单中&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Git常用命令&lt;/p&gt;
+
+&lt;p&gt;###创建&lt;/p&gt;
+
+&lt;p&gt;复制一个已创建的仓库:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git clone ssh://user@domain.com/repo.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建一个新的本地仓库:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###本地修改&lt;/p&gt;
+
+&lt;p&gt;显示工作路径下已修改的文件：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;显示与上次提交版本文件的不同：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git diff
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;把当前所有修改添加到下次提交中：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;把对某个文件的修改添加到下次提交中：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add -p &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;提交本地的所有修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git commit -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;提交之前已标记的变化：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;附加消息提交：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git commit -m 'message here'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;提交，并将提交时间设置为之前的某个日期:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit --date=&quot;`date --date='n day ago'`&quot; -am &quot;Commit Message&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###修改上次提交&lt;/p&gt;
+
+&lt;p&gt;请勿修改已发布的提交记录!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git commit --amend
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;把当前分支中未提交的修改移动到其他分支&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash
+git checkout branch2
+git stash pop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###搜索&lt;/p&gt;
+
+&lt;p&gt;从当前目录的所有文件中查找文本内容：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git grep &quot;Hello&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在某一版本中搜索文本：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git grep &quot;Hello&quot; v2.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###提交历史&lt;/p&gt;
+
+&lt;p&gt;从最新提交开始，显示所有的提交记录（显示hash， 作者信息，提交的标题和时间）：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;显示所有提交（仅显示提交的hash和message）：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git log --oneline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;显示某个用户的所有提交：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git log --author=&quot;username&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;显示某个文件的所有修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git log -p &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;谁，在什么时间，修改了文件的什么内容：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git blame &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###分支与标签&lt;/p&gt;
+
+&lt;p&gt;列出所有的分支：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git branch
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;切换分支：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git checkout &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建并切换到新分支:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git checkout -b &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;基于当前分支创建新分支：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git branch &amp;lt;new-branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;基于远程分支创建新的可追溯的分支：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git branch --track &amp;lt;new-branch&amp;gt; &amp;lt;remote-branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;删除本地分支:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git branch -d &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;给当前版本打标签：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git tag &amp;lt;tag-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###更新与发布&lt;/p&gt;
+
+&lt;p&gt;列出当前配置的远程端：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git remote -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;显示远程端的信息：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git remote show &amp;lt;remote&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;添加新的远程端：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git remote add &amp;lt;remote&amp;gt; &amp;lt;url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下载远程端版本，但不合并到HEAD中：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git fetch &amp;lt;remote&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下载远程端版本，并自动与HEAD版本合并：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git remote pull &amp;lt;remote&amp;gt; &amp;lt;url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将远程端版本合并到本地版本中：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git pull origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将本地版本发布到远程端：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git push remote &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;删除远程端分支：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git push &amp;lt;remote&amp;gt; :&amp;lt;branch&amp;gt; (since Git v1.5.0)
+或
+git push &amp;lt;remote&amp;gt; --delete &amp;lt;branch&amp;gt; (since Git v1.7.0)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;发布标签:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git push --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###合并与重置&lt;/p&gt;
+
+&lt;p&gt;将分支合并到当前HEAD中：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git merge &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将当前HEAD版本重置到分支中:
+请勿重置已发布的提交!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git rebase &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;退出重置:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git rebase --abort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;解决冲突后继续重置：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git rebase --continue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用配置好的merge tool 解决冲突：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git mergetool
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在编辑器中手动解决冲突后，标记文件为已解决冲突&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add &amp;lt;resolved-file&amp;gt;
+$ git rm &amp;lt;resolved-file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###撤销&lt;/p&gt;
+
+&lt;p&gt;放弃工作目录下的所有修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset --hard HEAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;移除缓存区的所有文件（i.e. 撤销上次git add）:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset HEAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;放弃某个文件的所有本地修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git checkout HEAD &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重置一个提交（通过创建一个截然不同的新提交）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git revert &amp;lt;commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将HEAD重置到指定的版本，并抛弃该版本之后的所有修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset --hard &amp;lt;commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将HEAD重置到上一次提交的版本，并将之后的修改标记为未添加到缓存区的修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset &amp;lt;commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将HEAD重置到上一次提交的版本，并保留未提交的本地修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git reset --keep &amp;lt;commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##Git进阶指南&lt;/p&gt;
+
+&lt;p&gt;###问：如何修改 origin 仓库信息？&lt;/p&gt;
+
+&lt;p&gt;####1、添加 origin 仓库信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin &amp;lt;git仓库地址&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;####2、查看 origin 仓库信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 以下三种方式均可
+git config get --remote.origin.url
+git remote -v
+git remote show origin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;####3、删除 origin 仓库信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git remote rm origin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###问：如何配置 git ssh keys ？&lt;/p&gt;
+
+&lt;p&gt;在本地生成 ssh 私钥 / 公钥 文件
+将「公钥」添加到 git 服务（github、gitlab、coding.net 等）网站后台
+测试 git ssh 连接是否成功
+接下来以添加 github ssh keys 为例，请注意替换 github 文件名。&lt;/p&gt;
+
+&lt;p&gt;注：如果对密钥机制不熟悉，建议不要指定 -f 参数，直接使用默认的 id_rsa 文件名。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 运行以下命令，一直回车，文件名可随意指定
+ssh-keygen -t rsa -b 4096 -C &quot;kaiye@macbook&quot; -f ~/.ssh/github
+
+# 如果不是默认密钥 id_rsa ，则需要以下命令注册密钥文件，-K 参数将密钥存入 Mac Keychain
+ssh-add -K ~/.ssh/github
+
+# 将 pub 公钥的内容粘贴到线上网站的后台
+cat ~/.ssh/github.pub
+
+# 测试 git ssh 是否连接成功
+ssh -T git@github.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###问：如何撤销修改？&lt;/p&gt;
+
+&lt;p&gt;修改包含四种情况，需单独区分。&lt;/p&gt;
+
+&lt;p&gt;####1、新建的文件和目录，且从未提交至版本库&lt;/p&gt;
+
+&lt;p&gt;此类文件的状态为 Untracked files ，撤销方法如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clean -fd .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中，. 表示当前目录及所有子目录中的文件，也可以直接指定对应的文件路径，以下其他情况类似。&lt;/p&gt;
+
+&lt;p&gt;####2、提交过版本库，但未提交至暂存区的文件（未执行 git add）&lt;/p&gt;
+
+&lt;p&gt;此类文件的状态为&lt;code class=&quot;highlighter-rouge&quot;&gt; Changes not staged for commit&lt;/code&gt;，撤销方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git checkout .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;####3、已提交至暂存区的文件&lt;/p&gt;
+
+&lt;p&gt;此类文件的状态为 Changes to be committed，撤销方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;执行之后文件将会回到以上的 1 或者 2 状态，可继续按以上步骤执行撤销，若 git reset 同时加上 –hard 参数，将会把修改过的文件也还原成版本库中的版本。&lt;/p&gt;
+
+&lt;p&gt;####4、已提交至版本库（执行了 git commit）&lt;/p&gt;
+
+&lt;p&gt;每次提交都会生成一个 hash 版本号，通过以下命令可查阅版本号并将其回滚：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log
+git reset &amp;lt;版本号&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果需要「回滚至上一次提交」，可直接使用以下命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset head~1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;执行之后，再按照 1 或者 2 状态进行处理即可，如果回滚之后的代码同时需要提交至 origin 仓库（即回滚 origin 线上仓库的代码），需要使用 -f 强制提交参数，且当前用户需要具备「强制提交的权限」。&lt;/p&gt;
+
+&lt;p&gt;####5、如果回滚了之后又不想回滚了怎么办？&lt;/p&gt;
+
+&lt;p&gt;如果是以上的情况 1 或者 2，只能歇屁了，因为修改没入过版本库，无法回滚。&lt;/p&gt;
+
+&lt;p&gt;如果是情况 4，回滚之后通过 git log 将看不到回滚之前的版本号，但可通过 git reflog 命令（所有使用过的版本号）找到回滚之前的版本号，然后 git reset &lt;版本号&gt; 。&lt;/版本号&gt;&lt;/p&gt;
+
+&lt;p&gt;###问：遇到冲突了怎么解决？&lt;/p&gt;
+
+&lt;p&gt;两个分支进行合并时（通常是 git pull 时），可能会遇到冲突，同时被修改的文件会进入 Unmerged 状态，需要解决冲突。&lt;/p&gt;
+
+&lt;p&gt;####1、最快的办法&lt;/p&gt;
+
+&lt;p&gt;大部分时候，「最快解决冲突」的办法是：使用当前 HEAD 的版本（ours），或使用合并进来的分支版本（theirs）。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 使用当前分支 HEAD 版本，通常是冲突源文件的 &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; 标记部分，======= 的上方
+git checkout --ours &amp;lt;文件名&amp;gt;
+
+ # 使用合并分支版本，通常是源冲突文件的 &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 标记部分
+ git checkout --theirs &amp;lt;文件名&amp;gt;
+
+# 标记为解决状态加入暂存区
+git add &amp;lt;文件名&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;####2、最通用的办法&lt;/p&gt;
+
+&lt;p&gt;用编辑器打开冲突的源文件进行修改，可能会发生遗留，且体验不好，通常需要借助 git mergetool 命令。&lt;/p&gt;
+
+&lt;p&gt;在 Mac 系统下，运行 git mergetool &lt;文件名&gt; 可以开启配置的第三方工具进行 merge，默认的是 FileMerge 应用程序，还可以配置成 Meld 或 kdiff3，体验更佳。&lt;/文件名&gt;&lt;/p&gt;
+
+&lt;p&gt;####3、最好的习惯&lt;/p&gt;
+
+&lt;p&gt;有三个好的习惯，可以减少代码的冲突：
+ 在开始修改代码前先 git pull 一下；
+  将业务代码进行划分，尽量不要多个人在同一时间段修改同一文件；
+  通过Gitflow 工作流也可以提升 git流程效率，减少发生冲突的可能性。&lt;/p&gt;
+
+&lt;p&gt;####4、最复杂的情况&lt;/p&gt;
+
+&lt;p&gt;如果你的项目周期比较长，还应该养成「定期 rebase 的习惯」，git pull –rebase 可以让分支的代码和 origin 仓库的代码保持兼容，同时还不会破坏线上代码的可靠性。&lt;/p&gt;
+
+&lt;p&gt;它的大概原理是，先将 origin 仓库的代码按 origin 的时间流在本地分支中提交，再将本地分支的修改记录追加到 origin 分支上。如果发生冲突，则可以即时的发现问题并解决，否则到项目上线时再解决冲突，可能会发生额外的风险。&lt;/p&gt;
+
+&lt;p&gt;rebase 大概的操作步骤如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 将当前分支的版本追加到从远程 pull 回来的节点之后
+git pull --rebase
+
+# 若发生冲突，则按以上其他方法进行解决，解决后继续
+git rebase --continue
+
+# 直到所有冲突得以解决，待项目最后上线前再执行
+git push origin
+
+# 若多次提交修改了同一文件，可能需要直接跳过后续提交，按提示操作即可
+git rebase --skip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###问：如何在不提交修改的前提下，执行 pull / merge 等操作？&lt;/p&gt;
+
+&lt;p&gt;有些修改没有完全完成之前，可能不需要提交到版本库，圡方法是将修改的文件 copy 到 git 仓库之外的目录临时存放，pull / merge 操作完成之后，再 copy 回来。&lt;/p&gt;
+
+&lt;p&gt;这样的做法一个是效率不高，另外一个可能会遗漏潜在的冲突。此类需求最好是通过 git stash 命令来完成，它可以将当前工作状态（WIP，work in progress）临时存放在 stash 队列中，待操作完成后再从 stash 队列中重新应用这些修改。&lt;/p&gt;
+
+&lt;p&gt;以下是 git stash 常用命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 查看 stash 队列中已暂存了多少 WIP
+git stash list
+
+# 恢复上一次的 WIP 状态，并从队列中移除
+git stash pop
+
+# 添加当前 WIP，注意：未提交到版本库的文件会自动忽略，只要不运行 git clean -fd . 就不会丢失
+git stash
+
+# 恢复指定编号的 WIP，同时从队列中移除
+git stash pop stash@{num}
+
+# 恢复指定编号的 WIP，但不从队列中移除
+git stash apply stash@{num}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###问：如何在 git log 中查看修改的文件列表？&lt;/p&gt;
+
+&lt;p&gt;默认的 git log 会显示较全的信息，且不包含文件列表。使用 –name-status 可以看到修改的文件列表，使用 –oneline 可以将参数简化成一行。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log --name-status --oneline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;每次手动加上参数很麻烦，可以通过自定义快捷命令的方式来简化操作：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.ls 'log --name-status --oneline --graph'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;运行以上配置后，可通过 git ls 命令来实现「自定义 git log」效果，通过该方法也可以创建 git st 、 git ci 等一系列命令，以便沿用 svn 命令行习惯。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.st 'status --porcelain'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;更多 git log 参数，可通过 git help log 查看手册。&lt;/p&gt;
+
+&lt;p&gt;如果是看上一次提交的版本日志，直接运行 git show 即可。&lt;/p&gt;
+
+&lt;p&gt;此外，如果你的 Mac 安装了zsh（参考《全新Mac安装指南（编程篇），那么可以直接使用 gst、glog 等一系列快捷命令，详情见此列表：Plugin:git 。&lt;/p&gt;
+
+&lt;p&gt;###问：git submodule update 时出错怎么解决？&lt;/p&gt;
+
+&lt;p&gt;例如，在执行 git submodule update 时有以下错误信息：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;fatal: reference is not a tree: f869da471c5d8a185cd110bbe4842d6757b002f5
+Unable to checkout ‘f869da471c5d8a185cd110bbe4842d6757b002f5’ in submodule path ‘source/i18n-php-server’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在此例中，发生以上错误是因为 i18n-php-server 子仓库在某电脑 A 的「本地」commit 了新的版本 「f869da471c5d8a185cd110bbe4842d6757b002f5」，且该次 commit 未 push origin。但其父级仓库 i18n-www 中引用了该子仓库的版本号，且将引用记录 push origin，导致其他客户机无法 update 。&lt;/p&gt;
+
+&lt;p&gt;解决方法，在电脑 A 上将 i18n-php-server 版本库 push origin 后，在其他客户机上执行 git submodule update 。或者用以上提到的 git reset 方法，将子仓库的引用版本号还原成 origin 上存在的最新版本号。&lt;/p&gt;
+
+&lt;p&gt;###其他问题&lt;/p&gt;
+
+&lt;p&gt;设置本地分支与远程分支保持同步，在第一次 git push 的时候带上 -u 参数即可&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin master -u 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;支持中文目录与文件名的显示（git 默认将非 ASCII 编码的目录与文件名以八进制编码展示）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config core.quotepath off
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;常用的打 tag 操作，更多请查看《Git 基础 - 打标签》&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 列出所有本地 tag
+git tag   
+
+# 本地新增一个 tag，推送至 origin 服务器
+git tag -a v1.0.0 -m 'tag description'
+git push origin v1.0.0
+
+# 删除本地与 origin tag
+git tag -d v1.0.0
+git push origin --delete v1.0.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用 git GUI 客户端（如，SoureTree、Github Desktop）能极大的提升分支管理效率。分支合并操作通常只有两种情况：从 origin merge 到本地，使用 git pull 即可；从另外一个本地分支 merge 到当前分支，使用 git merge &lt;分支名&gt;，以下是常用命令：&lt;/分支名&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 新建分支 branch1，并切换过去
+git checkout -b branch1
+
+# 查看所有本地与远程分支
+git branch -a
+
+# 修改完成后，切换回 master 分支，将 branch1 分支合并进来
+git checkout master
+git merge branch1
+
+# 删除已完成合并的分支 branch1
+git branch -d branch1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###参考资料&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Pro Git 简体中文版&lt;/li&gt;
+  &lt;li&gt;Git权威指南&lt;/li&gt;
+  &lt;li&gt;命令行man手册&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 14 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//linux/2016/11/14/git-guide(%E8%BD%AC%E8%BD%BD).html</link>
+        <guid isPermaLink="true">http://localhost:4000//linux/2016/11/14/git-guide(%E8%BD%AC%E8%BD%BD).html</guid>
+        
+        <category>Git</category>
+        
+        <category>VCS</category>
+        
+        
+        <category>Linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Java中的一些零碎点</title>
+        <description>&lt;p&gt;这篇文章主要记录一些Java学习中遇到的需要留心的知识点。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;基本变量&lt;/strong&gt;&lt;br /&gt;
+基本变量不用new创建变量，而是创建一个并非是引用的“自动变量”。存储在堆栈中，比存储在堆中的对象速度更快。&lt;br /&gt;
+基本变量共有八个，分别是boolean,char,byte,short,int,long,float,double。&lt;br /&gt;
+特别需要注意的是：String不是基本变量，而是引用变量。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;函数实现数组元素交换&lt;/strong&gt;&lt;br /&gt;
+在C语言中，要用函数实现数组元素的交换需要引入指针或引用，在Java中没有那么麻烦，直接将数组传入即可。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;对象作用域问题&lt;/strong&gt;&lt;br /&gt;
+  String s = new String();&lt;br /&gt;
+在上面这行代码中，s指向的String对象会一直存在（不需要时会被垃圾回收），而引用s在其作用域结束后失去作用。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Java中的命名规范&lt;/strong&gt;&lt;br /&gt;
+包名采用反转域名+模块名，全小写。类名首字母大写，其他采用驼峰式命名法。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;static&lt;/strong&gt;&lt;br /&gt;
+static方法可以不通过对象而直接使用方法名（或用类名）调用。&lt;br /&gt;
+static属性内存共同占有，使用不同的对象调用更改static属性都会引起属性值的改变。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;别名问题&lt;/strong&gt;&lt;br /&gt;
+假设有属性&lt;br /&gt;
+  int num=0；&lt;br /&gt;
+当用两个对象a，b分别调用num时，实际上这两个对象所调用的num是独立的。但当做以下操作
+  a=b；
+即将b引用的指向传递给了a引用，此时a,b均指向同一个对象，此时再做
+  a.num=10;
+则b引用下的num的值也变为10。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;equals与==&lt;/strong&gt;&lt;br /&gt;
+对于基本类型，比较“值”可以直接用“==”；在比较对象时，使用“==”比较的是引用，即使两个对象的属性是相同的，只要是不同的引用，返回的就是false。&lt;br /&gt;
+equals方法并不适用于基本类型，equals的默认行为也是比较引用，因此若想在自己的class中实现对象的属性的比较，需要对equals方法进行重写。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;位操作符与逻辑操作符&lt;/strong&gt;&lt;br /&gt;
+位操作符（&amp;amp;，|）是将数转换为二进制，对每一位二进制数进行比较，同为1不同为0；&lt;br /&gt;
+逻辑操作符（&amp;amp;&amp;amp;，||）返回的是boolear类型，不一定会操作到底，如进行“&amp;amp;&amp;amp;”操作时，若前面已经有“假”出现，直接返回
+false，停止比较。这种现象成为“短路现象”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;移位符&lt;/strong&gt;&lt;br /&gt;
+只能用于整型的二进制，左移位操作符（&amp;lt;&amp;lt;）在低位补0；&lt;br /&gt;
+有符号右移位（&amp;gt;&amp;gt;）：若为正，高位补0；若为负，高位补1；&lt;br /&gt;
+无符号右移位：(&amp;lt;&amp;lt;&amp;lt;):高位补0；&lt;br /&gt;
+对于char、byte、short等类型数据，会先转换成int类型（实际上只要类型比int小都会转换成int），得到的结果也是一个int类型，且只有数值右端第五位才有用，这是因为2^5=32=int位数。由于被转换成int类型，移位后截断赋值回去，可能会产生错误数值。&lt;br /&gt;
+对于Long，结果是Long，只会采用右端低六位。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;类型转换的截断&lt;/strong&gt;&lt;br /&gt;
+7.9转换成int类型的结果是7而不是8，如果想要得到8，必须调用Math类中的round方法。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;初始化顺序&lt;/strong&gt;&lt;br /&gt;
+在定义对象的地方进行初始化，意味着它们总是能够在构造器调用它们之前被初始化。定义的执行先于构造器。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;组合与继承&lt;/strong&gt;&lt;br /&gt;
+组合是在新类中产生现有类的对象，相当于将多个类的功能拿过来用，组合成一个新类。&lt;br /&gt;
+继承是在父类的基础上进行扩展。它不仅能实现父类的功能，还有一些新的功能。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;多个类的执行&lt;/strong&gt;&lt;br /&gt;
+当一个java文件中有多个类时，只能存在一个public修饰的class，并且运行时仅默认运行public修饰的class。事实上这个public修饰的 class是对外访问的一个接口，若要调用其他class，在public的main中调用&lt;code class=&quot;highlighter-rouge&quot;&gt;类名.main(args)&lt;/code&gt;即可。或者使用命令行调用。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;初始化基类&lt;/strong&gt;&lt;br /&gt;
+当创建一个子类对象时，其父类的一个子对象也被创建并包含在了这个子类对象中。子类对象的构造器在调用之前会先调用父类的构造器。如果没有手动定义构造器，其默认构造器会自动调用，若已经手动创建或者为有参构造器，需要手动的在子类构造器中使用&lt;code class=&quot;highlighter-rouge&quot;&gt;super(...)&lt;/code&gt;来调用。初始化的顺序为父类构造器-按照声明顺序初始化成员变量-子类构造器。需要注意的是，此时父类构造器如果调用某个方法，这个方法在子类已经被覆盖，则调用的是子类的方法。但由于初始化的顺序问题，子类方法中的成员还没有被初始化，这就会导致一些意外的错误。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;继承中的重载&lt;/strong&gt;&lt;br /&gt;
+当父类的某个方法多次被重载，若在子类中改变此方法，没有添加&lt;code class=&quot;highlighter-rouge&quot;&gt;@Override&lt;/code&gt;关键字时，其重载效果仍存在。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;抽象类与接口&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/10/0525/16/1039473_29458325.shtml&quot;&gt;抽象类与接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;多态中的动态绑定&lt;/strong&gt;&lt;br /&gt;
+父类的引用接受父类及子类的对象，当子类引用向上转型为父类引用时，我们得到的是一个父类引用。当子类对父类的某个方法进行了覆盖写后，使用这个向上转型后的引用调用这个方法时，调用的仍然是子类自己的方法（这个方法不能是private的，因为private属于final，同样静态方法也不适用。静态方法时父类引用调用的是父类的方法，非静态的是子类的）。这是由于动态绑定的效果。java中除了static方法和final方法默认都进行动态绑定。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;协变返回类型&lt;/strong&gt;&lt;br /&gt;
+子类的返回值类型可以是同属于一个父类的其他子类的类型&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;向下转型&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Super super = new Super();&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Super sub = new Sub();&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;(Sub)super;&lt;/code&gt;异常
+&lt;code class=&quot;highlighter-rouge&quot;&gt;(Sub) sub;&lt;/code&gt;通过&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 14 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//java/2016/11/14/Java%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E7%A2%8E%E7%82%B9.html</link>
+        <guid isPermaLink="true">http://localhost:4000//java/2016/11/14/Java%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E7%A2%8E%E7%82%B9.html</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
     
   </channel>
 </rss>

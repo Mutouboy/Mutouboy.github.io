@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <meta name="author" content="Mutouboy">
+
+  <title>
+    
+        Mutouboy|Java设计模式
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+
+<!-- GrowingIO -->
+
+
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Mutouboy</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/linux/">Linux</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/html/">HTML</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">Database</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">Java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Java</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 7 Dec 2016</span>
+                        <h1>
+                            Java设计模式
+                        </h1>
+                    </div>
+                    	<p>这篇文章主要记录了一些java设计模式</p>
+
+<p><strong><em>一、设计原则</em></strong></p>
+
+<p><strong>1、单一职责原则</strong></p>
+
+<p>一个类，只有一个引起它变化的原因。应该只有一个职责。每一个职责都是变化的一个轴线，如果一个类有一个以上的职责，这些职责就耦合在了一起。这会导致脆弱的设计。当一个职责发生变化时，可能会影响其它的职责。另外，多个职责耦合在一起，会影响复用性。例如：要实现逻辑和界面的分离。</p>
+
+<p><strong>2、开闭原则（Open Close Principle）</strong></p>
+
+<p>开闭原则就是说对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。所以一句话概括就是：为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
+
+<p><strong>3、里氏代换原则（Liskov Substitution Principle）</strong></p>
+
+<p>里氏代换原则(Liskov Substitution Principle LSP)面向对象设计的基本原则之一。   里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。 LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开-闭”原则的补充。实现“开-闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
+
+<p><strong>4、依赖倒转原则（Dependence Inversion Principle）</strong></p>
+
+<p>所谓依赖倒置原则（Dependence Inversion Principle）就是要依赖于抽象，不要依赖于具体。简单的说就是要求对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块间的耦合。</p>
+
+<p>实现开闭原则的关键是抽象化，并且从抽象化导出具体化实现，如果说开闭原则是面向对象设计的目标的话，那么依赖倒转原则就是面向对象设计的主要手段。</p>
+
+<p><strong>5、接口隔离原则（Interface Segregation Principle）</strong></p>
+
+<p>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。还是一个降低类之间的耦合度的意思，从这儿我们看出，其实设计模式就是一个软件的设计思想，从大型软件架构出发，为了升级和维护方便。所以上文中多次出现：降低依赖，降低耦合。</p>
+
+<p><strong>6、合成复用原则（Composite Reuse Principle）</strong></p>
+
+<p>合成复用原则就是指在一个新的对象里通过关联关系（包括组合关系和聚合关系）来使用一些已有的对象，使之成为新对象的一部分；新对象通过委派调用已有对象的方法达到复用其已有功能的目的。简言之：要尽量使用组合/聚合关系，少用继承。</p>
+
+<p><strong>7、迪米特法则（最少知道原则）（Demeter Principle）</strong></p>
+
+<p>为什么叫最少知道原则，就是说：一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。也就是说一个软件实体应当尽可能少的与其他实体发生相互作用。这样，当一个模块修改时，就会尽量少的影响其他的模块，扩展会相对容易，这是对软件实体之间通信的限制，它要求限制软件实体之间通信的宽度和深度。</p>
+
+<hr />
+<p><strong><em>二、模式介绍</em></strong><br />
+<strong>单例模式</strong><br />
+单例模式保证了某个对象只有一个实例，对于某些大型系统，频繁创建对象对系统压力很大，产生的开销也很大，使用单例模式可以很好的降低开销，也省去了频繁的new一个新对象，节省内存。同时，创建多个实例代表允许多个线程运行，在某些系统中是不允许的。<br />
+单例模式分两种方法：懒汉/饿汉<br />
+饿汉模式：</p>
+<ul>
+  <li>将类的构造器私有化（private），防止外部实例化对象</li>
+  <li>在类内部自身实例化一个对象，唯一且私有（private static）</li>
+  <li>提供一个公共静态的获取实例的方法（public static），用来获取这个唯一的实例<br />
+懒汉模式：</li>
+  <li>将类的构造器私有化（private），禁止外部实例化对象</li>
+  <li>声明（仅声明）一个唯一的实例，静态私有（private static）</li>
+  <li>提供一个公共静态的获取实例的方法（public static），先判断这个唯一实例是否为空，不为空则实例化；否则直接返回<br />
+懒汉和饿汉的比较：<br />
+懒汉模式只有调用获取对象的实例方法时才会实例化对象，加载速度快，但运行时获取对象速度慢，线程不安全。<br />
+饿汉模式在加载类时，改唯一对象实例就已经产生，无论是否需要。加载速度慢，但运行时获取对象速度快，线程安全。<br />
+—
+<strong>工厂模式</strong><br />
+工厂用来实现创建对象的细节，当用户需要一个对象时，只需要告诉工厂需要那个对象，工厂就会返回一个对象给用户使用，具体的创建对象的细节全部封装到工厂中。<br />
+假设有A包和B包，A包要调用B包的代码，B包向A包提供一个C接口。B包中实现了C接口的类有100个，这100个类的构造器各不相同。如果A要调用B采用NEW的方法，将面临在100个构造器中选择的难题，这是不现实的。A可以通过工厂，向工厂传递一个参数，工厂内部在这100个类中选择符合这个参数的对象，将其返回给A。</li>
+</ul>
+
+<p>工厂分简单工厂模式、工厂方法模式、抽象工厂模式三种<br />
+简单工厂模式：只有一个工厂，将new对象的过程封装起来，通过传进来的参数返回不同的对象。这种方法违反了开闭原则，当新增加一种对象时，工厂方法代码同样也需要进行改变。<br />
+工厂方法模式：有多个具体工厂继承基类抽象工厂，每个具体工厂负责某一个对象的创建，这样在增加新的对象种类时，只需要再新建一个对应的工厂即可，符合开闭原则。<br />
+抽象工厂模式：工厂方法模式的扩展，工厂方法中的产品只有一个，但抽象工厂中可以有多个，构成一个家族。<br />
+—
+<strong>代理模式</strong><br />
+代理是让某些类代替其他类做一些事，如可以采用代理的方式，在不改变A代码的情况下，用B实现A并做出一些改变。<br />
+代理分静态代理和动态代理。<br />
+静态代理是代理前就知道具体的信息，双方采用固定的端口和网络。<br />
+代理可以传递，如果采用继承的方法会很冗杂，最好采用聚合的方式来进行代理传递。</p>
+
+<pre>
+
+public interface Moveable {
+	void move();
+}
+</pre>
+<pre>
+public class Car implements Moveable {
+	@Override
+	public void move() {
+		//开车
+		try {
+			Thread.sleep(new Random().nextInt(1000));
+			System.out.println("开车中....");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+</pre>
+<pre>
+public class CarLogProxy implements Moveable {
+
+	public CarLogProxy(Moveable m) {
+		super();
+		this.m = m;
+	}
+	private Moveable m;
+	
+	@Override
+	public void move() {
+		System.out.println("日志开始....");
+		m.move();
+		System.out.println("日志结束....");
+	}
+}
+</pre>
+<pre>
+public class CarTimeProxy implements Moveable {
+
+	public CarTimeProxy(Moveable m) {
+		super();
+		this.m = m;
+	}
+
+	private Moveable m;
+	
+	@Override
+	public void move() {
+		long starttime = System.currentTimeMillis();
+		System.out.println("开始行驶....");
+		m.move();
+		long endtime = System.currentTimeMillis();
+		System.out.println("结束行驶....  行驶时间 
+				+ (endtime - starttime)" + "毫秒");
+	}
+
+}
+</pre>
+<pre>
+public class Client {
+
+	/**
+	 * 测试类
+	 */
+	public static void main(String[] args) {
+		Car car = new Car();
+		CarLogProxy clp = new CarLogProxy(car);
+		CarTimeProxy ctp = new CarTimeProxy(clp);
+		ctp.move();
+		/*
+		这里是代理传递。CarLogProxy() 和 CarTimeProxy()中的moveable m都是指向这里的 new Car()的引用
+		clp中的m.move()是Car中的move(),ctp中的move()是clp中的move();
+		按照这种传递式运行。
+		*/
+	}
+
+}
+</pre>
+<ul>
+  <li>动态代理
+JDK代理：</li>
+  <li>1、创建一个实现接口InvocationHandler的类，它必须实现invoke方法<br />
+<code class="highlighter-rouge">Public Object invoke（Object obj，Method method，Object[]args）</code><br />
+第一个参数obj一般指被代理类，method是被代理的方法，args为该方法的参数数组。这个抽象方法在代理类中动态实现</li>
+  <li>2、创建被代理的类以及接口</li>
+  <li>3、调用Proxy的静态方法，创建一个代理类<br />
+<code class="highlighter-rouge">newProxyInstance(ClassLoader loader,Class[]interfaces,InvocationHandler h)</code><br />
+返回一个代理类的实例，可以当做被代理类使用</li>
+  <li>4、通过代理调用方法
+代码如下:</li>
+  <li>1.建立接口</li>
+</ul>
+
+<pre>
+public interface UserSerive {
+    String getName(int id);
+    Integer getAge(int id);
+}
+</pre>
+
+<ul>
+  <li>2.建立实现了接口的类</li>
+</ul>
+
+<pre>
+public class User implements UserSerive {
+    private String name="tom";
+    private int age = 10;
+    @Override
+    public String getName(int id) {
+        System.out.println("------name is:"+name);
+        return name;
+    }
+    @Override
+    public Integer getAge(int id) {
+        System.out.println("------age is:"+age);
+        return age;
+    }
+}
+</pre>
+<ul>
+  <li>3.创建代理类实现接口InvocationHandler</li>
+</ul>
+
+<pre>
+public class InvoHinder implements InvocationHandler {
+	//target为要代理的类
+    private Object target;
+    public InvoHinder(){super();}
+    public InvoHinder(Object target) {
+        super();
+        this.target = target;
+  }
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+       Object result= method.invoke(target,args);
+        return result;
+    }
+}
+</pre>
+<ul>
+  <li>4.测试</li>
+</ul>
+
+<pre>
+public class Text {
+    public static void main(String[] args){
+        UserSerive use = new User();
+        InvocationHandler h = new InvoHinder(use);
+        Class&lt;?&gt; cls = use.getClass();
+//创建代理实例，指定代理的类、类实现的接口以及代理实例。这里能够看到，jdk代理只能实现接口方法。
+       UserSerive u = (UserSerive) Proxy.newProxyInstance(cls.getClassLoader(),
+				cls.getInterfaces(),h);
+       System.out.println(u.getName(1));
+        u.getAge(1);
+    }
+</pre>
+
+<p>CGLIB代理：
+JDK动态代理只能代理实现了接口的类，而CGLIB动态代理没有这个限制，它是针对类实现的。<br />
+对指定目标产生一个子类，通过方法拦截技术拦截所有父类方法的调用。<br />
+代码如下：</p>
+<ul>
+  <li>1.创建类</li>
+</ul>
+
+<pre>
+public class User {
+    public void show(){
+        System.out.println("------------");
+    }
+}
+</pre>
+<ul>
+  <li>2.创建代理接口,实现MethodInterceptor接口，需要jar包</li>
+</ul>
+
+<pre>
+public class Cgliproxy implements MethodInterceptor{
+
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+    //o为被代理类，method为拦截的方法，objects为代理方法参数数组，methodProxy为代理方法
+        methodProxy.invokeSuper(o,objects);
+        return null;
+    }
+}
+</pre>
+<ul>
+  <li>3.测试</li>
+</ul>
+
+<pre>
+public class Text {
+    public static void main(String[] args){
+        //代理初始化
+        Cgliproxy cgliproxy = new Cgliproxy();
+        Enhancer enhancer = new Enhancer();
+        //进行代理，设置要代理的类和代理
+        enhancer.setSuperclass(User.class);
+        enhancer.setCallback(cgliproxy);
+        //创建代理实例
+        User user = (User)enhancer.create();
+        //调用方法
+        user.show();
+    }
+}
+</pre>
+<hr />
+<p><strong><em>适配器模式</em></strong><br />
+将一个类的接口转换成客户期望的另一个接口，是的原本因为接口不兼容而无法一起工作的类可以一起工作。<br />
+注意，这里转换的只是接口，真正的方法内容并不会改变。<br />
+代码如下：</p>
+
+<ul>
+  <li>1.创建一个目标功能接口，要让不兼容的类实现这个功能。</li>
+</ul>
+
+<pre>
+public interface ThreeIf {
+    void powerThree();
+}
+</pre>
+<ul>
+  <li>2.创建一个不兼容的类，用来将其转换。</li>
+</ul>
+
+<pre>
+public class Two {
+    void show(){
+        System.out.println("---------Two power----------");
+    }
+}
+</pre>
+<ul>
+  <li>3.创建一个适配器，且接收一个不兼容的类，实现目标功能接口</li>
+</ul>
+
+<pre>
+public class Adapter implements ThreeIf {
+    private  Two two;
+    public Adapter(Two two) {
+        this.two = two;
+    }
+    @Override
+    public void powerThree() {
+        System.out.println("----Adapter running! Two --&gt; Three -----");
+        two.show();
+    }
+}
+</pre>
+<p>在这里可以看到，转换后实现的方法实际上还是不兼容类的原有方法。</p>
+
+<ul>
+  <li>4.测试</li>
+</ul>
+
+<pre>
+public class Computer {
+    public static void main(String[] args){
+        Two t = new Two();
+        ThreeIf three = new Adapter(t);
+        three.powerThree();
+    }
+}
+</pre>
+
+<ul>
+  <li>5.通过继承方式：</li>
+</ul>
+
+<pre>
+public class UseExtend extends Two implements ThreeIf {
+    @Override
+    public void powerThree() {
+        System.out.println("***********");
+        this.show();
+    }
+}
+测试：
+ThreeIf te = new UseExtend();
+te.powerThree();
+</pre>
+<hr />
+<p><strong><em>策略模式</em></strong><br />
+更好的实现代码复用，其思想为将可变的部分抽象为接口。子类继承父类时，会继承父类所有的成员，对于有些成员属性，不同子类有不同需求，如果通过复写，会导致工作量增大，无法实现代码复用。<br />
+通过策略模式，创建一个策略接口，用来规范某个方法。<br />
+策略方法类通过实现这个接口复写方法。<br />
+在父类中，得到通过策略接口的多态引用来调用策略方法，每个子类通过将不同的策略方法类set到父类的多态引用中去，从而实现复写后的策略方法。<br />
+总的来说，就是将可变的方法单独拿出来写，子类需要哪个就将哪个set到父类中。<br />
+策略模式使用范围：</p>
+<ol>
+  <li>许多相关的类仅仅是行为差异</li>
+  <li>运行时选取不同的算法变体</li>
+  <li>通过条件语句在多个分支中选取</li>
+</ol>
+
+<p>代码如下：
+父类</p>
+
+<pre>
+public abstract class Duck {
+//鸣叫，所有子类都会有的方法
+    void quary(){
+        System.out.println("gagagagagaga......");
+    }
+//外观，不同子类不同，自行复写
+    abstract void display();
+//策略接口的引用
+    private FlyStrategy fs;
+//接收子类中策略方法到父类中来
+    void setFs(FlyStrategy fs) {
+        this.fs = fs;
+    }
+//通过多态利用接口引用调用方法
+    void fly(){
+        fs.performfly();
+    }
+}
+</pre>
+<p>策略接口</p>
+
+<pre>
+public interface FlyStrategy {
+    void performfly();
+}
+</pre>
+<p>策略方法类</p>
+
+<pre>
+public class FlayWithWings implements FlyStrategy {
+    @Override
+    public void performfly() {
+        System.out.println("I use wings to fly");
+    }
+}
+</pre>
+<p>子类1</p>
+
+<pre>
+public class LittleDuck extends Duck {
+
+    public LittleDuck() {
+        super();
+        //在构造器中讲此策略方法set到父类中去
+        super.setFs(new FlayWithWings());
+    }
+
+    @Override
+    void display() {
+        System.out.println("I am a little duck");
+    }
+}
+</pre>
+<p>子类2</p>
+
+<pre>
+public class BigDuck extends Duck{
+    public BigDuck() {
+        super();
+        super.setFs(new FlayWithWings());
+    }
+
+    @Override
+    void display() {
+        System.out.println("I am a Big duck");
+    }
+}
+</pre>
+<p>测试</p>
+
+<pre>
+public class Text {
+    public static void main(String[] args){
+        Duck duck;
+        duck=new LittleDuck();
+
+        duck.quary();
+        duck.display();
+        duck.fly();
+    }
+}
+</pre>
+
+<hr />
+
+<p><strong><em>责任链模式</em></strong><br />
+责任链模式是一种事物处理机制，存在多个处理系统构成一个链，当当前系统无法处理事件时，会将该事件传递给上一级系统进行处理。  客户端请求事件得到结果不关心到底是由责任链中的哪个系统处理的该事件。<br />
+Java中的异常处理模式、前端的js事件模式，以及web中的过滤模式都是责任链模式的一种体现。<br />
+代码如下：</p>
+
+<p>1.创建一个父类处理系统，其子类继承它，实现不同层次的处理</p>
+
+<pre>
+public abstract class PriceHinder {
+    //设置successor
+    protected PriceHinder successor;
+    public void setPriceHinder(PriceHinder successor) {
+        this.successor = successor;
+    }
+    //处理事件
+    public abstract void PriceCounter(float count);
+}
+</pre>
+<p>2.创建多个子类处理系统，凑成不同层次处理关系</p>
+
+<pre>
+public class Sales extends PriceHinder {
+    //满足条件则处理，否则丢给上一级去处理。工厂中将此类的successor设置为了Manager
+    @Override
+    public void PriceCounter(float count) {
+    //自己能处理则自己处理，否则交给successor去处理
+        if (count&lt;=0.05) System.out.println("Sales agree the count");
+        else successor.PriceCounter(count);
+    }
+}
+</pre>
+<pre>
+public class Manager extends PriceHinder {
+    //满足条件则处理，否则丢给上一级去处理。工厂中将此类的successor设置为了CEO
+    @Override
+    public void PriceCounter(float count) {
+        if (count&lt;=0.25) System.out.println("Manager agree the count");
+        else successor.PriceCounter(count);
+    }
+}
+</pre>
+<pre>
+public class Ceo extends PriceHinder {
+    @Override
+    public void PriceCounter(float count) {
+        if (count&lt;=0.55) System.out.println("CEO agree the count");
+        else System.out.println("CEO disagree the count");
+    }
+}
+</pre>
+<p>3.创建一个工厂用来处理系统初始化及构建责任链</p>
+
+<pre>
+public class HinderFactory {
+
+    public static PriceHinder creatHinder(){
+        //初始化
+        PriceHinder sales = new Sales();
+        PriceHinder man = new Manager();
+        PriceHinder ceo = new Ceo();
+        //设置每一个子类中的successor为上一级的对象，构成责任链
+        sales.setPriceHinder(man);
+        man.setPriceHinder(ceo);
+        //责任链初始为sales
+        return sales;
+    }
+}
+</pre>
+<p>4.客户端测试</p>
+
+<pre>
+public class Consumer {
+    private PriceHinder priceHinder;
+
+    public void setPriceHinder(PriceHinder priceHinder) {
+        this.priceHinder = priceHinder;
+    }
+    public void requestCount(float count){
+        priceHinder.PriceCounter(count);
+    }
+    public static void main(String[] args){
+        //客户初始化
+        Consumer consumer = new Consumer();
+        //初始化责任链起点，起点为sales
+        consumer.setPriceHinder(HinderFactory.creatHinder());
+        //用随机数模拟测试100次
+        Random rand = new Random();
+        float n=0;
+        for (int i=1;i&lt;=100;i++){
+            n=rand.nextFloat();
+            System.out.print(n+":");
+            consumer.requestCount(n);
+        }
+</pre>
+<p>在sales中，如果count满足条件，自己处理，不然，交给successor处理。
+因为sales继承PriceHinder类，所以有successor对象，在工厂中，sales中的successor已经被指定为Manager对象，所以在sales中的else方法中，实际上调用的是Manager中的方法。
+由于责任链模式需要遍历，时间浪费，且有多个对象空闲等待，造成内存浪费，所以应用要根据实际情况考虑。</p>
+
+<hr />
+<p><strong><em>模板方法模式</em></strong><br />
+构建一个抽象基类，实现一些固定的方法，将一些可变的方法定义为抽象方法，交给子类去继承重写，最后将所有方法组合成一个不可改变的模板方法。
+步骤：</p>
+<ol>
+  <li>创建一个抽象基类，实现一些固定的方法，不定的方法定义为抽象方法交给子类实现。</li>
+</ol>
+
+<pre>
+public abstract class Template {
+    protected final void templateMethod(){
+        //将水煮沸
+        boilWater();
+        //冲泡饮料
+        drew();
+        //倒进杯子
+        pourInCup();
+        //加点调料，通过钩子函数判断子类是否需要该功能
+        if (isAddContiment())
+        addContiment();
+    }
+
+    private void boilWater() {
+        System.out.println("水烧开了");
+    }
+    private void pourInCup() {
+        System.out.println("把饮料倒进杯子");
+    }
+    protected abstract void drew();
+
+    protected abstract void addContiment();
+    //钩子函数，用来表明子类需不需要添加调料
+    protected boolean isAddContiment(){
+        return true;
+    }
+}
+</pre>
+<ol>
+  <li>设置子类</li>
+</ol>
+
+<pre>
+public class Tea extends Template {
+
+    @Override
+    protected void drew() {
+        System.out.println("添加西湖龙井，浸泡茶水");
+    }
+
+    @Override
+    protected void addContiment() {
+        System.out.println("添加菊花");
+    }
+
+    // 不添加调料
+    @Override
+    protected boolean isAddContiment() {
+        return false;
+    }
+}
+</pre>
+<pre>
+public class Coffee extends Template {
+    @Override
+    protected void drew() {
+        System.out.println("开水浸泡咖啡豆，冲泡咖啡");
+    }
+
+    @Override
+    protected void addContiment() {
+        System.out.println("添加牛奶和糖");
+    }
+    //不复写，或者返回true都代表添加，因为默认是添加
+    @Override
+    protected boolean isAddContiment() {
+        return true;
+    }
+}
+</pre>
+<ol>
+  <li>测试</li>
+</ol>
+
+<pre>
+public class Text {
+    public static void main(String[] args){
+        Template tea = new Tea();
+        tea.templateMethod();
+        System.out.println("\n******************");
+        Template cof = new Coffee();
+        cof.templateMethod();
+    }
+}
+</pre>
+<p>核心思想是变与不变分离，不变的在基类中实现，变的交给子类实现。<br />
+模板方法将所有方法汇总成一个final修饰的不可改变的方法。<br />
+为了保证子类的灵活，可在基类中设置可继承的钩子函数，用来决定子类是否需要某些功能。<br />
+钩子函数可以如本例中的判断，或者构建一个空的函数，由子类添加具体实现。</p>
+
+<hr />
+
+<p><strong><em>观察者模式</em></strong></p>
+
+<p>目标对象基类、具体的目标对象、观察者接口，具体的观察者。<br />
+当具体的目标对象发布信息时，所有观察者都会收到信息，实现同步。<br />
+代码如下：</p>
+<ol>
+  <li>目标对象基类</li>
+</ol>
+
+<pre>
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 目标类，用来管理所有注册过的观察者，添加、删除、储存、通知更新
+ */
+public class Subject {
+    //设置存储数组，用来存储所有观察者
+    private ArrayList&lt; Observe&gt; observes = new ArrayList&lt; Observe&gt;();
+    //添加
+    public void addObserve(Observe observe){
+        observes.add(observe);
+    }
+    //删除
+    public void deletObserve(Observe observe){
+        observes.remove(observe);
+    }
+    //已注册的观察者更新状态
+    protected void update(){
+        for (Observe o:observes) {
+            o.update(this);
+        }
+    }
+}
+</pre>
+<ol>
+  <li>具体的目标类</li>
+</ol>
+
+<pre>
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 具体的天气预报目标
+ */
+public class WeatherSubject extends Subject{
+    //天气状态
+    private String WeatherState;
+    public String getWeatherState() {
+        return WeatherState;
+    }
+    //设置天气状态时（更新），调用更新方法通知所有观察者进行更新
+    public void setWeatherState(String weatherState) {
+        this.WeatherState = weatherState;
+        this.update();
+    }
+}
+</pre>
+<ol>
+  <li>观察者接口</li>
+</ol>
+
+<pre>
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 观察者接口
+ */
+public interface IObserveInterface {
+    public void update(Subject subject);
+}
+</pre>
+<ol>
+  <li>具体的观察者</li>
+</ol>
+
+<pre>
+/**
+ * Created by jiangwenbin on 16/12/6.
+ * 具体的观察者类
+ */
+public class Observe implements IObserveInterface {
+    //定义观察者的姓名、提示信息，以及天气状态（由目标提供）
+    private String name="";
+    private String message="";
+    private String state="";
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    @Override
+    public void update(Subject subject) {
+        state=((WeatherSubject)subject).getWeatherState();
+        System.out.println(getName()+"收到了"+state+","+getMessage());
+    }
+}
+</pre>
+<ol>
+  <li>测试</li>
+</ol>
+
+<pre>
+/**
+ * Created by jiangwenbin on 16/12/6.
+ */
+public class Text {
+    public static void main(String[] args){
+
+        //创建目标
+        WeatherSubject weatherSubject = new WeatherSubject();
+        //创建观察者
+        Observe girl = new Observe();
+        girl.setName("女朋友");
+        girl.setMessage("第一次约会，黄石公园");
+
+        Observe mom = new Observe();
+        mom.setName("妈妈");
+        mom.setMessage("去购物");
+        //注册观察者
+        weatherSubject.addObserve(girl);
+        weatherSubject.addObserve(mom);
+        //发布天气
+        weatherSubject.setWeatherState("明天天气晴朗");
+    }
+}
+</pre>
+<p>观察者模型有推模式和拉模式，上面例子中的是拉模式，用户自己根据需求从目标出获取相关数据。<br />
+而推模型是目标将信息直接推送给观察者，这种情况需要对观察者的接口进行特殊设定，传递特殊的信息。<br />
+如果要区别对待观察者，则update方法在基类定义为抽象，由具体目标去实现。<br />
+java本身提供了观察者模式，观察者接口和目标抽象类已经存在，直接用即可。注意使用时，改变信息前，要先调用setChange()方法</p>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">java</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                            <br>
+                            <!-- share -->
+                            
+                            <br>
+                            <!-- comment -->
+                            
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+
+<!-- Google analytics -->
+
+
+
+
+
+
+<script async src="/static/js/count.min.js"></script>
+
+	
+
+</body>
+</html>

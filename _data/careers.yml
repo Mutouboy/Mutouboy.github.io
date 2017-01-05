@@ -1,56 +1,56 @@
 # careers section data
 - name:
     detail: 读研阶段
-    i18n: nextcode
+    i18n: i1
   desc:
     detail: 我成为了一名研究生，为生活、为梦想努力奋斗
-    i18n: nextcode_des
+    i18n: i1_des
   date:
     detail: Sept. 2016
-    i18n: nextcode_date
+    i18n: i1_date
   job:
     detail: 计算机系研究生
-    i18n: nextcode_job
+    i18n: i1_job
   icon: fa-plus-square
 
 - name:
     detail: 大学毕业
-    i18n: netease
+    i18n: i2
   desc:
     detail: 四年大学时光结束
-    i18n: netease_des
+    i18n: i2_des
   date:
     detail: June. 2016
-    i18n: nextcode_date
+    i18n: i2_date
   job:
     detail: 本科生
-    i18n: netease_job
+    i18n: i2_job
   icon: fa-gamepad
 
 - name:
     detail: 大学伊始
-    i18n: ucloud
+    i18n: i3
   desc:
     detail: 从一名高中生蜕变为一个大学生
-    i18n: ucloud_des
+    i18n: i3_des
   date:
     detail: Sep. 2012
-    i18n: ucloud_date
+    i18n: i3_date
   job:
     detail: 大学新生
-    i18n: ucloud_job
+    i18n: i3_job
   icon: fa-cloud
 
 - name:
     detail: 高考
-    i18n: college
+    i18n: i4
   desc:
     detail: 难忘的两天
-    i18n: college_des
+    i18n: i4_des
   date:
     detail: June. 2012
-    i18n: college_date
+    i18n: i4_date
   job:
     detail: 高中生
-    i18n: college_job
+    i18n: i4_job
   icon: fa-book
