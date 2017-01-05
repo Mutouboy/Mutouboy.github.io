@@ -1,37 +1,54 @@
-permalink: /blog/:year/:month/:title.html 
-include: ['.htaccess']
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "CNAME", "Gemfile", "Gemfile.lock"]
+# Welcome to Jekyll!
+
+# Website settings
+title: "Mutouboy"
+description: "Mutouboy`s blog"
+keywords: "Mutouboy,blog,Jekyll,github,gh-pages"
+baseurl: "/"
+url: "http://www.jwb5.xyz"
+# url: "http://127.0.0.1:4000"
+
+# author
+author:
+  name: 'Mutouboy'
+  # first_name: 'Jia'
+  last_name: '斌'
+  email: 'jwb@jwb5.xyz'
+  # facebook_username: 'jiakunnj'
+  github_username: 'Mutouboy'
+  avatar: ''
+  desc: '我是一名在校研究生，学习计算机相关知识，擅长Java等领域'
+
+# comment
+changyan:
+  # appid: cysfY7ULn
+  # conf: prod_861928934cecb7a18e15bedaed9dae29
+disqus:
+  name: jalpc
+  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
+
+# share
+bshare:
+  uuid: 513f778e-a8f7-4c20-9ec2-d29cc2328d75
+
+# baidu analytics
+ba:
+  # uuid: 317acca9ef9255b934e46371e471431d
+
+# google analytics
+ga:
+  id: UA-73784599-1
+
+# growingIO
+gio:
+  id: a49d4901c7853da9
+
+# Build settings
+encoding: "utf-8"
+
+# other settings
+highlighter: rouge
 markdown: kramdown
-highlights: pygments
-url: 
-cdn_url: 7u2t01.com1.z0.glb.clouddn.com
-lsi: false
-safe: true
-timezone: Asia/Shanghai
-auto: false 
-
-paginate: 8
-paginate_path: "page:num"
-
 kramdown:
-  auto_ids: true,
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
-
-JB :
-  IMAGE_PATH : http://coolshell.info/images
-
-# presonal config
-# domain: http://coolshell.info
-title: Mutouboy
-description: A presonal blog
-author: Mutouboy
-email: jiangwenbin5@gmail.com
-github: Mutouboy
-
-config:
-  js_dir:
-  img_dir:
-  css_dir:
+  input: GFM
+  syntax_highlighter: rouge

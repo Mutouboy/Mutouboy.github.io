@@ -1,0 +1,56 @@
+# careers section data
+- name:
+    detail: 读研阶段
+    i18n: nextcode
+  desc:
+    detail: 我成为了一名研究生，为生活、为梦想努力奋斗
+    i18n: nextcode_des
+  date:
+    detail: Sept. 2016
+    i18n: nextcode_date
+  job:
+    detail: 计算机系研究生
+    i18n: nextcode_job
+  icon: fa-plus-square
+
+- name:
+    detail: 大学毕业
+    i18n: netease
+  desc:
+    detail: 四年大学时光结束
+    i18n: netease_des
+  date:
+    detail: June. 2016
+    i18n: nextcode_date
+  job:
+    detail: 本科生
+    i18n: netease_job
+  icon: fa-gamepad
+
+- name:
+    detail: 大学伊始
+    i18n: ucloud
+  desc:
+    detail: 从一名高中生蜕变为一个大学生
+    i18n: ucloud_des
+  date:
+    detail: Sep. 2012
+    i18n: ucloud_date
+  job:
+    detail: 大学新生
+    i18n: ucloud_job
+  icon: fa-cloud
+
+- name:
+    detail: 高考
+    i18n: college
+  desc:
+    detail: 难忘的两天
+    i18n: college_des
+  date:
+    detail: June. 2012
+    i18n: college_date
+  job:
+    detail: 高中生
+    i18n: college_job
+  icon: fa-book
