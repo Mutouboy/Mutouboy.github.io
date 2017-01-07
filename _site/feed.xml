@@ -5,9 +5,32 @@
     <description>Mutouboy`s blog</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Jan 2017 22:20:45 +0800</pubDate>
-    <lastBuildDate>Thu, 05 Jan 2017 22:20:45 +0800</lastBuildDate>
+    <pubDate>Sat, 07 Jan 2017 10:47:09 +0800</pubDate>
+    <lastBuildDate>Sat, 07 Jan 2017 10:47:09 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Github博客绑定个人域名</title>
+        <description>&lt;p&gt;绑定个人域名介绍&lt;/p&gt;
+
+&lt;p&gt;第一步：购买域名，我选择的是阿里的万网。如我自己的jwb5.xyz&lt;/p&gt;
+
+&lt;p&gt;第二步：在你的GithubPages的项目根目录中创建一个CNAME文件，无后缀名，文本编辑器打开，内容为你购买的域名（不带www或者http），然后推送到github上。 如我自己的：jwb5.xyz。需要注意的是推送上去后在github端查看一下文件内容，看看是不是你的域名。&lt;/p&gt;
+
+&lt;p&gt;第三步：注册一个DNSpod账号（可以QQ登录），添加域名（自己的域名），添加两个A记录，主机记录为www，记录值为192.30.252.153，和192.30.252.154（这两个IP是github的服务器IP，所有人设置都一样），再添加一个CNAME记录，主机记录@，记录值为你的博客地址，如我自己的Mutouboy.github.io.注意最后的点。&lt;/p&gt;
+
+&lt;p&gt;第四步：如果像我这样买的万网的域名用的第三方解析，去万网单域名管理页面，更改DNS解析地址为你用的DNS解析地址。具体修改方法&lt;a href=&quot;https://support.dnspod.cn/Kb/showarticle/tsid/40/&quot;&gt;参考这里&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000//life/2017/01/03/Github%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D.html</link>
+        <guid isPermaLink="true">http://localhost:4000//life/2017/01/03/Github%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D.html</guid>
+        
+        <category>其他</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
     
       <item>
         <title>Java设计模式</title>
