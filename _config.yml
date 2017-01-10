@@ -19,13 +19,6 @@ author:
   avatar: 'static/img/landing/my.jpg'
   desc: '我是一名在校研究生，学习计算机相关知识，擅长Java等领域'
 
-# comment
-changyan:
-  # appid: cysfY7ULn
-  # conf: prod_861928934cecb7a18e15bedaed9dae29
-disqus:
-  # name: Mutouboy
-  # public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
 
 # share
 bshare:
