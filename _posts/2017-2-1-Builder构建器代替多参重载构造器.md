@@ -1,7 +1,7 @@
 ---  
-layout :post
-title :Builder构建器
-category :java
+layout: post
+title: Builder构建器
+category: java
 ---
 
 当一个类拥有多个参数，特别是其中一大部分是可选参数时，其构造器的创建就变得麻烦起来。在面对这种情况时，一般有三种方式。  
