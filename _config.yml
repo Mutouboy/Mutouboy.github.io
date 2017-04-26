@@ -5,7 +5,7 @@ title: "Mutouboy"
 description: "Mutouboy`s blog"
 keywords: "Mutouboy,blog,Jekyll,github,gh-pages"
 baseurl: "/"
-url: "http://www.jwb5.xyz"
+url: "http://www.jwb5.cn"
 # url: "http://127.0.0.1:4000"
 
 # author
@@ -13,7 +13,7 @@ author:
   name: 'Mutouboy'
   first_name: ''
   last_name: '斌'
-  email: 'jwb@jwb5.xyz'
+  email: 'jwb@jwb5.cn'
   # facebook_username: 'jiakunnj'
   github_username: 'Mutouboy'
   avatar: 'static/img/landing/my.jpg'
