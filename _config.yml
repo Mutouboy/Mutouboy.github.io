@@ -3,7 +3,7 @@
 # Website settings
 title: "Mutouboy"
 description: "Mutouboy`s blog"
-keywords: "Mutouboy,blog,Jekyll,github,gh-pages"
+keywords: "Mutouboy,蒋文斌，中国计量大学"
 baseurl: "/"
 url: "http://www.jwb5.cn"
 # url: "http://127.0.0.1:4000"
@@ -12,12 +12,12 @@ url: "http://www.jwb5.cn"
 author:
   name: 'Mutouboy'
   first_name: ''
-  last_name: '斌'
+  last_name: '蒋文斌'
   email: 'jwb@jwb5.cn'
   # facebook_username: 'jiakunnj'
   github_username: 'Mutouboy'
   avatar: 'static/img/landing/my.jpg'
-  desc: '我是一名在校研究生，学习计算机相关知识，擅长Java等领域'
+  desc: 'Java开发工程师，硕士，2019年6月毕业于中国计量大学计算机应用技术专业'
 
 
 # share
