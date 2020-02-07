@@ -1,56 +1,55 @@
 # careers section data
 - name:
-    detail: 读研阶段
-    i18n: i1
+    detail: Jdk源码阅读
+    i18n: Jdk
   desc:
-    detail: 我成为了一名研究生，为生活、为梦想努力奋斗
+    detail: 1.阅读过常用集合如List，Set，Map的源码，并熟悉其底层实现原理。\n 2.阅读过JUC包下的源码，熟悉基于AQS的并发工具工作原理。 \n 3. 阅读过部分线程池的源码，明白各参数的作用及其工作原理。 4. 熟练使用Java8新特性
     i18n: i1_des
-  date:
-    detail: Sept. 2016
-    i18n: i1_date
   job:
-    detail: 计算机系研究生
-    i18n: i1_job
+    detail: Java
+    i18n: Java
   icon: fa-plus-square
 
 - name:
-    detail: 大学毕业
+    detail: Spring系列源码阅读
     i18n: i2
   desc:
-    detail: 四年大学时光结束
+    detail: 1.阅读过Spring的部分源码，了解IOC和AOP的底层实现原理及其事务管理机制。2. 阅读过SpringMVC的部分源码，了解其工作流程及参数转换等功能原理。 3. 阅读过SpringBoot的部分源码，了解自动装配的实现机制。
     i18n: i2_des
-  date:
-    detail: June. 2016
-    i18n: i2_date
   job:
-    detail: 本科生
+    detail: Spring
     i18n: i2_job
   icon: fa-gamepad
 
 - name:
-    detail: 大学伊始
+    detail: Mybatis源码阅读
     i18n: i3
   desc:
-    detail: 从一名高中生蜕变为一个大学生
+    detail: 阅读过Mybatis的部分源码实现，了解其Mapper代理，参数绑定，结果集映射等功能原理
     i18n: i3_des
-  date:
-    detail: Sep. 2012
-    i18n: i3_date
   job:
-    detail: 大学新生
+    detail: Mybatis
     i18n: i3_job
   icon: fa-cloud
 
 - name:
-    detail: 高考
+    detail: 事物、索引、日志
     i18n: i4
   desc:
-    detail: 难忘的两天
+    detail: 熟悉Mysql的事物、索引、锁和相关日志，有一点Sql索引调优经验。实际工作中搭建过上线使用的主从复制结构及定时备份任务。
     i18n: i4_des
-  date:
-    detail: June. 2012
-    i18n: i4_date
   job:
-    detail: 高中生
+    detail: Mysql
+    i18n: i4_job
+  icon: fa-book
+
+- name:
+    detail: 数据结构、分布式
+    i18n: i4
+  desc:
+    detail: 了解Redis的各种底层数据结构如跳跃列表、压缩列表、紧凑列表等，能够使用Hash、ZSet等进行日常开发，了解其高可用和集群配置方案，了解基于Redis的分布式锁即限流算法等应用。
+    i18n: i4_des
+  job:
+    detail: Redis
     i18n: i4_job
   icon: fa-book

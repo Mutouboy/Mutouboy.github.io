@@ -1,21 +1,21 @@
 # skills section data
-- name: Python
-  percentage: 5
+# - name: Java
+#   percentage: 5
 
-- name: HTML/CSS
-  percentage: 20
+# - name: Mybatis
+#   percentage: 20
 
-- name: Linux/Shell
-  percentage: 10
+# - name: Spring
+#   percentage: 10
 
-- name: Java
-  percentage: 30
+# - name: Redis
+#   percentage: 30
 
-- name: Jsp
-  percentage: 40
+# - name: Mysql
+#   percentage: 40
 
-- name: Spring
-  percentage: 3
+# - name: RabbitMq
+#   percentage: 3
 
-- name: Jquery
-  percentage: 0
+# - name: Docker
+#   percentage: 0
