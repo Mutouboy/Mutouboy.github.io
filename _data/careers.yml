@@ -14,7 +14,7 @@
     detail: Spring系列源码阅读
     i18n: i2
   desc:
-    detail: 1.阅读过Spring的部分源码，了解IOC和AOP的底层实现原理及其事务管理机制。2. 阅读过SpringMVC的部分源码，了解其工作流程及参数转换等功能原理。 3. 阅读过SpringBoot的部分源码，了解自动装配的实现机制。
+    detail: 1.阅读过Spring的部分源码，熟悉IOC和AOP的底层实现原理及其事务管理机制。2. 阅读过SpringMVC的部分源码，熟悉其工作流程及参数绑定等功能原理。 3. 阅读过SpringBoot的部分源码，熟悉自动装配的实现机制。
     i18n: i2_des
   job:
     detail: Spring
@@ -25,7 +25,7 @@
     detail: Mybatis源码阅读
     i18n: i3
   desc:
-    detail: 阅读过Mybatis的部分源码实现，了解其Mapper代理，参数绑定，结果集映射等功能原理
+    detail: 阅读过Mybatis的部分源码实现，熟悉其Mapper代理，参数绑定，结果集映射等功能原理
     i18n: i3_des
   job:
     detail: Mybatis
@@ -47,7 +47,7 @@
     detail: 数据结构、分布式
     i18n: i4
   desc:
-    detail: 了解Redis的各种底层数据结构如跳跃列表、压缩列表、紧凑列表等，能够使用Hash、ZSet等进行日常开发，了解其高可用和集群配置方案，了解基于Redis的分布式锁即限流算法等应用。
+    detail: 熟悉Redis的各种底层数据结构如跳跃列表、压缩列表、紧凑列表等，能够使用Hash、ZSet等进行日常开发，熟悉其高可用和集群配置方案，以及基于Redis的分布式锁即限流算法等应用。
     i18n: i4_des
   job:
     detail: Redis
